@@ -1,21 +1,17 @@
-/**
- * ГЛАВНЫЙ СКРИПТ ПОРТФОЛИО
- * Скролл (Lenis) + Переходы (Swup) + Интерактив
- */
 
-// 1. Инициализация Swup (отвечает за переходы между страницами)
+// инициализация swup (переходы между страницами)
 const swup = new Swup({
   containers: ["#swup", "#swup-menu"], // Контейнер, который будет меняться
   plugins: [new SwupHeadPlugin()],
   cache: true
 });
 
-// 2. Функция инициализации всех скриптов на странице
+// функция инициализации всех скриптов на странице
 function initPageScripts() {
   
-  // --- ПЛАВНЫЙ СКРОЛЛ (LENIS) ---
+  // плавный скролл
   const lenis = new Lenis({
-    lerp: 0.1, // Плавность (0.1 — золотая середина)
+    lerp: 0.1, // плавность 
     smoothWheel: true,
   });
 
@@ -25,7 +21,7 @@ function initPageScripts() {
   }
   requestAnimationFrame(raf);
 
-  // --- КОПИРОВАНИЕ ПОЧТЫ (из вашего index.html) ---
+  // скрипт копирования почты
   const emailCard = document.getElementById('emailCard');
   if (emailCard) {
     const emailLabel = emailCard.querySelector('.js-email');
@@ -51,7 +47,7 @@ function initPageScripts() {
     });
   }
 
-  // --- ПЛАВНЫЙ ПЕРЕХОД К ЯКОРЯМ (#about, #experience) ---
+  // плавный скролл к якорям
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -66,14 +62,14 @@ function initPageScripts() {
   });
 }
 
-// 3. ЗАПУСК ПРИ ЗАГРУЗКЕ
+// запуск при загрузке
 initPageScripts();
 
-// 4. ПЕРЕЗАПУСК ПРИ СМЕНЕ СТРАНИЦ
-// Когда Swup заменил контент, мы снова запускаем скрипты для новых элементов
+// перезапуск для новых страниц
+// когда Swup заменил контент, мы снова запускаем скрипты для новых элементов
 swup.hooks.on('content:replace', () => {
   initPageScripts();
-  // Прокручиваем страницу вверх при переходе на новый кейс
+  // прокручиваем страницу вверх при переходе на новый кейс
   window.scrollTo(0, 0);
 });
 

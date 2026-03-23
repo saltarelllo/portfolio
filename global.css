@@ -690,16 +690,21 @@ h1 {
   text-wrap: balance;
 }
 
-/* Базовое состояние страницы */
+/* swup */
 .transition-fade {
-  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 1;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out; 
 }
 
-/* Состояние в процессе анимации (когда страница уходит или приходит) */
+/* Когда мы нажали на ссылку и страница начала "исчезать" */
 html.is-animating .transition-fade {
-  opacity: 0;
-  transform: translateY(10px); /* Легкое движение вверх для эффекта глубины */
+    opacity: 0;
+}
+
+/* Когда контент уже заменился (внутри), но мы еще не начали его плавно показывать.
+   Это тот самый момент, когда браузер успевает подгрузить стили. */
+html.is-changing .transition-fade {
+    opacity: 0;
 }
 
 /* Отключаем стандартный скролл-behavior, чтобы он не мешал Lenis */
