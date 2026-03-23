@@ -88,6 +88,10 @@ li {
     }
 }
 
+.fw-bold {
+  font-weight: 500; 
+}
+
 /* 2. FONTS */
 
 @font-face {
