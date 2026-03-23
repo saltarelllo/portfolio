@@ -6,12 +6,23 @@ const swup = new Swup({
   cache: true
 });
 
+// сброс скролла при переходе
+swup.hooks.on('content:replace', () => {
+    // Если lenis доступен глобально
+    if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: true });
+    } else {
+        // Если вдруг lenis не подгрузился, используем обычный скролл
+        window.scrollTo(0, 0);
+    }
+});
+
 // функция инициализации всех скриптов на странице
 function initPageScripts() {
   
   // плавный скролл
-  const lenis = new Lenis({
-    lerp: 0.1, // плавность 
+  window.lenis = new Lenis({
+    lerp: 0.1,
     smoothWheel: true,
   });
 
