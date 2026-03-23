@@ -136,7 +136,7 @@ svg.logo-desktop-version {
 }
 .case-card-wrapper .btn--round:hover {
   background-color: var(--color-neutral-0);
-  border: 3px solid var(--color-accent-500);
+  border: 1px solid var(--color-accent-500);
   color: var(--color-accent-500);
 }
 .case-card-wrapper .btn--round:active {
