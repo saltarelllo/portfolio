@@ -1,4 +1,25 @@
 
+// Ждем полной загрузки всех ресурсов страницы
+window.addEventListener('load', function() {
+    // Находим наш лоадер
+    const loader = document.getElementById('site-loader');
+    
+    // Если лоадер есть на странице
+    if (loader) {
+        // Добавляем класс, который запускает CSS-переход (исчезновение)
+        loader.classList.add('site-loader--hidden');
+        
+        // Маленький хак: возвращаем скролл наверх сразу при загрузке,
+        // чтобы пока белый экран, страница успела "отскочить" к шапке
+        // (это дополнительная страховка к тому, что мы делали для Swup)
+        if (window.lenis) {
+            window.lenis.scrollTo(0, { immediate: true });
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }
+});
+
 // инициализация swup (переходы между страницами)
 const swup = new Swup({
   containers: ["#swup", "#swup-menu"], // Контейнер, который будет меняться

@@ -711,3 +711,24 @@ html.is-changing .transition-fade {
 html {
   scroll-behavior: auto !important;
 }
+
+/* загрузка сайта */
+
+/* Стартовое состояние: белый экран на весь экран */
+.site-loader {
+    position: fixed;
+    inset: 0; /* Расширяется на весь экран (top:0, left:0, width:100%, height:100%) */
+    background-color: #ffffff; /* Чистый белый цвет (можно заменить на твой фоновый) */
+    z-index: 99999; /* Самый высокий приоритет, чтобы перекрыть меню, скролл и всё остальное */
+    
+    /* Указываем, как именно лоадер будет исчезать */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s; /* Длительность фейда - 0.8 секунды */
+}
+
+/* Класс, который мы добавим через JS, чтобы запустить анимацию исчезновения */
+.site-loader.site-loader--hidden {
+    opacity: 0;
+    visibility: hidden; /* Этот параметр важен, чтобы лоадер не мешал кликам после исчезновения */
+}
