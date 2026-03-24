@@ -81,6 +81,10 @@ li {
     color: var(--color-neutral-800);
 }
 
+p {
+    margin-bottom: 1em;
+}
+
 @media (max-width: 768px) {
     li {
         font-size: var(--font-size-18);
