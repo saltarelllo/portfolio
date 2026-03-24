@@ -275,6 +275,7 @@
 .gallery__item {
   flex: 1; 
   aspect-ratio: 1 / 1;
+  height: auto;
   min-width: 0; 
   border-radius: var(--radius-24);
   overflow: hidden;
