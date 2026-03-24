@@ -269,6 +269,7 @@
   flex-direction: row;
   gap: var(--space-16);
   width: 100%;
+  align-items: flex-start;
 }
 
 .gallery__item {
