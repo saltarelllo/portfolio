@@ -273,6 +273,7 @@
 
 .gallery__item {
   flex: 1; 
+  aspect-ratio: 1 / 1;
   min-width: 0; 
   border-radius: var(--radius-24);
   overflow: hidden;
@@ -338,7 +339,6 @@
 
   .gallery__item {
     flex: 0 0 calc(100% - 60px); 
-    aspect-ratio: 1 / 1 !important;
     scroll-snap-align: start;
     overflow: hidden;
   }
