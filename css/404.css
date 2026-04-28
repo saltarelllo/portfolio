@@ -1,0 +1,74 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding: 0; 
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero__logo {
+  flex-shrink: 0;
+  transform: rotate(-2deg); scale: 1.35;
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+  /* Уменьшаем ширину до 140vw, чтобы дуга стала более выпуклой */
+  width: 100vw; 
+  /* Высота рассчитывается от центра экрана (50vh) + смещение до кнопки.
+     Если линия не по центру кнопки — меняйте число 160px */
+  height: calc(50vh + 100px); 
+  background-color: var(--color-neutral-0);
+  border-radius: 0 0 50% 50%;
+  z-index: -1;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-48);
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-24);
+  font-weight: 300;
+  color: var(--color-neutral-800);
+  margin: 0;
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+
+  .hero__bg {
+    width: 250vw; /* Еще шире на мобильных для более ровной линии */
+    /* На мобильных контент плотнее, уменьшаем смещение */
+    height: calc(50vh + 110px);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-20);
+    line-height: var(--line-height-20);
+    padding: 0 var(--space-32);
+    max-width: 760px;
+  }
+
+  .hero__logo {
+  transform: rotate(-2deg); scale: 1;
+}
+
+}
