@@ -263,6 +263,7 @@ p {
 .arrow-left-icon--24 { width: 24px; height: 24px; }
 .arrow-left-icon--16 { width: 16px; height: 16px; }
 
+
 .projecting-icon {
   display: inline-flex;
   align-items: center;
@@ -278,6 +279,23 @@ p {
 .projecting-icon--36 { width: 36px; height: 36px; }
 .projecting-icon--24 { width: 24px; height: 24px; }
 .projecting-icon--16 { width: 16px; height: 16px; }
+
+
+.xmark-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: inherit; 
+}
+.xmark-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.xmark-icon--36 { width: 36px; height: 36px; }
+.xmark-icon--24 { width: 24px; height: 24px; }
+.xmark-icon--16 { width: 16px; height: 16px; }
 
 
 /*--- B. buttons ---*/
@@ -679,7 +697,120 @@ a.sticker--m:hover {
 
 }
 
-/* 6. UTILITIES */
+/* 6. WIP-POPUP (Попап «Сайт в разработке») */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 10, 11, 0.6); /* Полупрозрачный темный фон */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99990; /* Поверх всего, кроме загрузчика */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  
+  /* анимация появления оверлея */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.popup-overlay.popup--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup-content {
+  background-color: var(--color-neutral-800);
+  border-radius: var(--radius-16);
+  padding: var(--space-48) var(--space-48) var(--space-48);
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+  box-sizing: border-box;
+  
+  /* анимация всплытия */
+  transform: translateY(0) scale(1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* flexbox для центрирования контента */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.popup-overlay.popup--hidden .popup-content {
+  transform: translateY(20px) scale(0.95);
+}
+
+/* cтили крестика */
+.popup__close-btn {
+  position: absolute;
+  top: var(--space-12);
+  right: var(--space-12);
+  background: none;
+  border: none;
+  color: var(--color-neutral-400); 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px; /* Область клика побольше */
+  transition: color 0.2s ease;
+}
+
+.popup__close-btn:hover {
+  color: var(--color-neutral-0);
+}
+
+/* обёртка для картинки со скруглениями */
+.popup__image-wrapper {
+  width: 100%;
+  border-radius: var(--radius-12);
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+  background-color: var(--color-neutral-0); /* белая подложка на случай PNG без фона */
+}
+
+.popup__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* стили текста */
+.popup__text {
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-20);
+  color: var(--color-neutral-0); 
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+}
+
+/* модификатор кнопки (светлая кнопка на темном фоне) */
+.popup__btn-light {
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-900);
+  font-weight: 500;
+  margin-top: var(--space-8);
+  padding: var(--space-12) var(--space-32); /* Немного компактнее стандартной --m */
+}
+
+.popup__btn-light:hover {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-900);
+}
+
+.popup__btn-light:active {
+  background-color: var(--color-neutral-400);
+  color: var(--color-neutral-900);
+}
+
+/* 7. UTILITIES */
 
 /*контейнер, ограничивающий ширину контента на всех страницах*/
 

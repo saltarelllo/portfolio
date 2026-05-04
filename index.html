@@ -111,7 +111,7 @@
           </p>
 
           <div class="case__grid">
-            <a href="pages/eduson-case-2.html" class="case-card-wrapper">
+            <a href="pages/eduson-case-2/" class="case-card-wrapper">
               <div class="case-card case-card--m">
                 <h3 class="case-card__title">Доработка дизайн-системы для&nbsp;клиентских презентаций</h3>
               </div>
@@ -156,7 +156,7 @@
 
           <div class="case__grid">
 
-            <a href="pages/okko-case.html" class="case-card-wrapper">
+            <a href="pages/okko-case/" class="case-card-wrapper">
               <div class="case-card case-card--m">
                 <h3 class="case-card__title">Редизайн раздела &laquo;Загрузки&raquo; в&nbsp;мобильном приложении</h3>
               </div>
@@ -244,6 +244,25 @@
   <script src="https://unpkg.com/swup@4" defer></script>
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
   <script src="js/scripts.js" defer></script>
+
+  <div id="welcome-popup" class="popup-overlay popup--hidden">
+  <div class="popup-content">
+    
+    <button id="close-popup" class="popup__close-btn" aria-label="Закрыть">
+      <svg class="xmark-icon xmark-icon--24" aria-hidden="true">
+        <use href="assets/images/icons.svg#xmark-icon"></use>
+      </svg>
+    </button>
+
+    <div class="popup__image-wrapper">
+      <img src="assets/images/meme.webp" alt="Смешной мем про альтернативы созданию сайта" class="popup__image">
+    </div>
+
+    <p class="popup__text">Привет! Сайт находится в&nbsp;доработке и&nbsp;может содержать баги и&nbsp;плейсхолдеры. Приношу извинения, скоро всё будет красиво!</p>
+    
+    <button id="ok-popup" class="btn btn--m btn--pill popup__btn-light">Понятно</button>
+  </div>
+</div>
 
 </body>
 
