@@ -105,3 +105,42 @@ swup.hooks.on('content:replace', () => {
   window.scrollTo(0, 0);
 });
 
+
+// скрипт для поп-апа
+
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.getElementById('welcome-popup');
+  const closeBtn = document.getElementById('close-popup');
+  const okBtn = document.getElementById('ok-popup');
+
+  if (popup) {
+    // 1. Проверяем в localStorage, показывали ли мы уже поп-ап
+    const hasSeenPopup = localStorage.getItem('portfolioPopupSeen');
+
+    if (!hasSeenPopup) {
+      // 2. Если не показывали, ждем пока пройдет анимация site-loader (около 800мс)
+      // и плавно показываем поп-ап
+      setTimeout(() => {
+        popup.classList.remove('popup--hidden');
+      }, 1000); // 1 секунда задержки
+    }
+
+    // Функция для скрытия поп-апа и записи в память браузера
+    const hidePopup = () => {
+      popup.classList.add('popup--hidden');
+      // Записываем флаг, чтобы больше не показывать
+      localStorage.setItem('portfolioPopupSeen', 'true');
+    };
+
+    // 3. Обработчики кликов для закрытия
+    if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+    if (okBtn) okBtn.addEventListener('click', hidePopup);
+
+    // Закрытие по клику на темный фон вокруг поп-апа
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        hidePopup();
+      }
+    });
+  }
+});
