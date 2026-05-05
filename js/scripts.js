@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const okBtn = document.getElementById('ok-popup');
 
   if (popup) {
-    // 1. Проверяем в localStorage, показывали ли мы уже поп-ап
-    const hasSeenPopup = localStorage.getItem('portfolioPopupSeen');
+    // 1. Проверяем в sessionStorage, показывали ли мы уже поп-ап
+    const hasSeenPopup = sessionStorage.getItem('portfolioPopupSeen');
 
     if (!hasSeenPopup) {
       // 2. Если не показывали, ждем пока пройдет анимация site-loader (около 800мс)
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hidePopup = () => {
       popup.classList.add('popup--hidden');
       // Записываем флаг, чтобы больше не показывать
-      localStorage.setItem('portfolioPopupSeen', 'true');
+      sessionStorage.setItem('portfolioPopupSeen', 'true');
     };
 
     // 3. Обработчики кликов для закрытия
