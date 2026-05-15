@@ -1,146 +1,86 @@
-
-// Ждем полной загрузки всех ресурсов страницы
-window.addEventListener('load', function() {
-    // Находим наш лоадер
-    const loader = document.getElementById('site-loader');
-    
-    // Если лоадер есть на странице
-    if (loader) {
-        // Добавляем класс, который запускает CSS-переход (исчезновение)
-        loader.classList.add('site-loader--hidden');
-        
-        // Маленький хак: возвращаем скролл наверх сразу при загрузке,
-        // чтобы пока белый экран, страница успела "отскочить" к шапке
-        // (это дополнительная страховка к тому, что мы делали для Swup)
-        if (window.lenis) {
-            window.lenis.scrollTo(0, { immediate: true });
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }
-});
-
-// инициализация swup (переходы между страницами)
-const swup = new Swup({
-  containers: ["#swup", "#swup-menu"], // Контейнер, который будет меняться
-  plugins: [new SwupHeadPlugin()],
-  cache: true
-});
-
-// сброс скролла при переходе
-swup.hooks.on('content:replace', () => {
-    // Если lenis доступен глобально
-    if (window.lenis) {
-        window.lenis.scrollTo(0, { immediate: true });
-    } else {
-        // Если вдруг lenis не подгрузился, используем обычный скролл
-        window.scrollTo(0, 0);
-    }
-});
-
-// функция инициализации всех скриптов на странице
-function initPageScripts() {
-  
-  // плавный скролл
-  window.lenis = new Lenis({
+// 1. Инициализируем Lenis один раз и вешаем в window, чтобы он был доступен везде
+window.lenis = new Lenis({
     lerp: 0.1,
     smoothWheel: true,
-  });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  // скрипт копирования почты
-  const emailCard = document.getElementById('emailCard');
-  if (emailCard) {
-    const emailLabel = emailCard.querySelector('.js-email');
-    const originalText = "templeress@gmail.com";
-
-    emailCard.addEventListener('click', () => {
-      if (emailCard.classList.contains('is-copied')) return;
-
-      navigator.clipboard.writeText(originalText).then(() => {
-        emailLabel.innerText = "Скопировано!";
-        emailCard.classList.add('is-copied');
-        
-        // Возвращаем текст почты через 2 секунды
-        setTimeout(() => {
-          emailLabel.style.opacity = '0';
-          setTimeout(() => {
-            emailLabel.innerText = originalText;
-            emailLabel.style.opacity = '1';
-            emailCard.classList.remove('is-copied');
-          }, 300);
-        }, 2000);
-      });
-    });
-  }
-
-  // плавный скролл к якорям
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === "#") return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        lenis.scrollTo(targetElement, { offset: -20 });
-      }
-    });
-  });
-}
-
-// запуск при загрузке
-initPageScripts();
-
-// перезапуск для новых страниц
-// когда Swup заменил контент, мы снова запускаем скрипты для новых элементов
-swup.hooks.on('content:replace', () => {
-  initPageScripts();
-  // прокручиваем страницу вверх при переходе на новый кейс
-  window.scrollTo(0, 0);
 });
 
+function raf(time) {
+    window.lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
 
-// скрипт для поп-апа
+// 2. Swup Инициализация
+const swup = new Swup({
+    containers: ["#swup", "#swup-menu"],
+    plugins: [new SwupHeadPlugin()],
+    cache: true
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const popup = document.getElementById('welcome-popup');
-  const closeBtn = document.getElementById('close-popup');
-  const okBtn = document.getElementById('ok-popup');
+// 3. Функция для оживления элементов на каждой странице
+function initPageScripts() {
+    console.log("Скрипты инициализированы");
 
-  if (popup) {
-    // 1. Проверяем в sessionStorage, показывали ли мы уже поп-ап
-    const hasSeenPopup = sessionStorage.getItem('portfolioPopupSeen');
+    // Логика копирования почты
+    const emailCard = document.getElementById('emailCard');
+    if (emailCard) {
+        const emailLabel = emailCard.querySelector('.js-email');
+        const originalText = emailLabel?.innerText;
 
-    if (!hasSeenPopup) {
-      // 2. Если не показывали, ждем пока пройдет анимация site-loader (около 800мс)
-      // и плавно показываем поп-ап
-      setTimeout(() => {
-        popup.classList.remove('popup--hidden');
-      }, 1000); // 1 секунда задержки
+        emailCard.onclick = () => {
+            if (emailCard.classList.contains('is-copied')) return;
+            navigator.clipboard.writeText(originalText).then(() => {
+                emailLabel.innerText = "Скопировано!";
+                emailCard.classList.add('is-copied');
+                setTimeout(() => {
+                    emailLabel.innerText = originalText;
+                    emailCard.classList.remove('is-copied');
+                }, 2000);
+            });
+        };
     }
 
-    // Функция для скрытия поп-апа и записи в память браузера
-    const hidePopup = () => {
-      popup.classList.add('popup--hidden');
-      // Записываем флаг, чтобы больше не показывать
-      sessionStorage.setItem('portfolioPopupSeen', 'true');
-    };
-
-    // 3. Обработчики кликов для закрытия
-    if (closeBtn) closeBtn.addEventListener('click', hidePopup);
-    if (okBtn) okBtn.addEventListener('click', hidePopup);
-
-    // Закрытие по клику на темный фон вокруг поп-апа
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) {
-        hidePopup();
-      }
+    // Скролл к якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.onclick = (e) => {
+            const targetId = anchor.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                window.lenis.scrollTo(targetElement, { offset: -20 });
+            }
+        };
     });
-  }
+}
+
+// 4. События Swup
+swup.hooks.on('content:replace', () => {
+    initPageScripts(); 
+    window.lenis.scrollTo(0, { immediate: true });
+});
+
+// 5. Первая загрузка
+window.addEventListener('load', () => {
+    const loader = document.getElementById('site-loader');
+    if (loader) loader.classList.add('site-loader--hidden');
+    initPageScripts();
+});
+
+// Логика поп-апа (срабатывает только один раз при посещении)
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('welcome-popup');
+    if (popup && !sessionStorage.getItem('portfolioPopupSeen')) {
+        setTimeout(() => popup.classList.remove('popup--hidden'), 1000);
+        
+        const closeBtn = document.getElementById('close-popup');
+        const okBtn = document.getElementById('ok-popup');
+        
+        const hidePopup = () => {
+            popup.classList.add('popup--hidden');
+            sessionStorage.setItem('portfolioPopupSeen', 'true');
+        };
+
+        closeBtn?.addEventListener('click', hidePopup);
+        okBtn?.addEventListener('click', hidePopup);
+    }
 });
