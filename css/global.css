@@ -669,7 +669,9 @@ a.sticker--m:hover {
 
   .menu {
     width: calc(100% - 32px);
+    height: 48px;
     bottom: var(--space-32); 
+    padding-left: var(--space-24);
   }
 
   .menu-left__name {
@@ -677,19 +679,21 @@ a.sticker--m:hover {
   }
 
   .menu-right {
-    gap: var(--space-8);
+    gap: var(--space-16);
     flex-grow: 1;
     justify-content: flex-end;
   }
+
   .menu-right__link {
     font-size: var(--font-size-18);
     line-height: var(--line-height-18);
   }
-  .menu {
-    height: 48px;
-    padding: 0 var(--space-12);
-  }
 
+  .menu .btn {
+    padding: var(--space-12) var(--space-24);
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+  }
 }
 
 /*--- B. footer ---*/
@@ -798,11 +802,6 @@ a.sticker--m:hover {
   transform: translateY(20px) scale(0.95);
 }
 
-.popup__close-btn:hover {
-  color: var(--color-neutral-0);
-}
-
-/* обёртка для картинки со скруглениями */
 .popup__image-wrapper {
   width: 100%;
   border-radius: var(--radius-12);
@@ -817,7 +816,6 @@ a.sticker--m:hover {
   display: block;
 }
 
-/* стили текста */
 .popup__text {
   font-size: var(--font-size-20);
   line-height: var(--line-height-20);
@@ -825,6 +823,12 @@ a.sticker--m:hover {
   font-weight: 300;
   text-align: center;
   margin: 0;
+}
+
+#close-popup {
+  position: absolute;
+  top: var(--space-12);
+  right: var(--space-12);
 }
 
 /* 7. UTILITIES */
