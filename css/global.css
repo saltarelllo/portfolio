@@ -305,6 +305,57 @@ p {
 .xmark-icon--16 { width: 16px; height: 16px; }
 
 
+.play-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: inherit; 
+}
+.play-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.play-icon--36 { width: 36px; height: 36px; }
+.play-icon--24 { width: 24px; height: 24px; }
+.play-icon--16 { width: 16px; height: 16px; }
+
+
+.desktop-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: inherit; 
+}
+.desktop-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.desktop-icon--36 { width: 36px; height: 36px; }
+.desktop-icon--24 { width: 24px; height: 24px; }
+.desktop-icon--16 { width: 16px; height: 16px; }
+
+
+.grad-cap-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: inherit; 
+}
+.grad-cap-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.grad-cap-icon--36 { width: 36px; height: 36px; }
+.grad-cap-icon--24 { width: 24px; height: 24px; }
+.grad-cap-icon--16 { width: 16px; height: 16px; }
+
+
 /*--- B. buttons ---*/
 
 /* 1. базовый класс */
@@ -836,7 +887,7 @@ a.sticker--m:hover {
 /*контейнер, ограничивающий ширину контента на всех страницах*/
 
 .container {
-  max-width: 1320px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-16);
   width: 100%;     
