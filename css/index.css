@@ -162,6 +162,9 @@ svg.logo-desktop-version {
   background-color: var(--color-neutral-0);
   color: var(--color-accent-500);
 }
+.case-card:hover .case-card__title {
+  color: var(--color-accent-500);
+}
 
 .case-card:active {
   transform: scale(0.98);

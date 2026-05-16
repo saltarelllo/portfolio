@@ -40,17 +40,26 @@ function initPageScripts() {
         };
     }
 
-    // Скролл к якорям
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.onclick = (e) => {
-            const targetId = anchor.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                window.lenis.scrollTo(targetElement, { offset: -20 });
-            }
-        };
-    });
+// Глобальный перехват кликов по локальным якорям (#)
+// Работает в фазе capture, чтобы сработать ДО того, как клик поймает Swup
+window.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    
+    // Проверяем, что ссылка начинается именно с # (локальный якорь на текущей странице)
+    if (href && href.startsWith('#')) {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+            e.preventDefault();
+            e.stopPropagation(); // Важно: Swup больше не увидит этот клик!
+            
+            // Плавно скроллим с помощью Lenis
+            window.lenis.scrollTo(targetElement, { offset: -20 });
+        }
+    }
+}, { capture: true }); // Включаем фазу захвата
 }
 
 // 4. События Swup
