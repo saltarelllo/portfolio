@@ -40,6 +40,12 @@
   --space-48: 48px;
   --space-60: 60px;
   --space-72: 72px;
+
+  --size-16: 16px;
+  --size-24: 24 px;
+  --size-32: 32px;
+  --size-48: 48px;
+
 }
 
 *, *::before, *::after {
@@ -300,62 +306,135 @@ p {
 
 /*--- B. buttons ---*/
 
+/* 1. базовый класс */
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
   font-family: var(--font-family);
   font-weight: 400;
-  background-color: var(--color-neutral-800);
-  color: var(--color-neutral-0);
-  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  
+  transition: background-color 0.15s ease-out, 
+              color 0.15s ease-out, 
+              border-color 0.15s ease-out, 
+              transform 0.1s ease-out;
 }
 
-/*btn-state*/
-.btn:hover { background-color: var(--color-neutral-850); }
-.btn:active {
-  background-color: var(--color-neutral-900);
-  color: var(--color-neutral-700);
-  transition-duration: 0.3s;
+/* глобальная блокировка для состояния disabled */
+.btn:disabled,
+.btn.is-disabled {
+  cursor: not-allowed;
+  pointer-events: none; /* Отключает hover и active */
 }
 
-/*btn-sizes*/
-.btn--m {
+/* 2. размеры */
+.btn--size-m {
   padding: var(--space-16) var(--space-32);
   font-size: var(--font-size-20);
   line-height: var(--line-height-20);
-  border-radius: var(--radius-100); 
 }
-.btn--s {
+
+.btn--size-s {
   padding: var(--space-12) var(--space-24);
   font-size: var(--font-size-18);
   line-height: var(--line-height-18);
-  border-radius: var(--radius-100); 
 }
 
-/*btn-shapes*/
-.btn--pill {
+/* 3. формы */
+.btn--shape-pill {
   border-radius: var(--radius-100);
 }
-.btn--round {
-  width: 48px;
-  height: 48px;
-  padding: var(--space-12);
-  border-radius: 50%; 
+
+.btn--shape-round {
+  border-radius: 50%;
+  padding: 0;
 }
-.btn--round:hover {
+
+/* Привязываем размеры конкретно к круглой форме, чтобы сохранялся идеальный круг */
+.btn--shape-round.btn--size-m {
+  width: var(--size-48);
+  height: var(--size-48);
+}
+.btn--shape-round.btn--size-s {
+  width: var(--size-32); 
+  height: var(--size-32);
+}
+
+/* 4. варианты и состояния  */
+
+/* --- Appearance: Default --- */
+.btn--appearance-default {
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-0);
+}
+.btn--appearance-default:hover {
+  background-color: var(--color-neutral-850);
+}
+.btn--appearance-default:active {
+  background-color: var(--color-neutral-900);
+  color: var(--color-neutral-700);
+  transform: scale(0.98);
+}
+.btn--appearance-default:disabled,
+.btn--appearance-default.is-disabled {
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-400);
+}
+
+/* --- Appearance: Accent --- */
+.btn--appearance-accent {
+  background-color: var(--color-accent-500);
+  color: var(--color-neutral-0);
+  border-color: var(--color-accent-500); /* Красим изначально, чтобы бордер не "вырастал" */
+}
+.btn--appearance-accent:hover {
   background-color: var(--color-neutral-0);
-  border: 1px solid var(--color-accent-500);
   color: var(--color-accent-500);
+  border-color: var(--color-accent-500);
 }
-.btn--round:active {
-  transform: scale(0.95);
-  background-color: var(--color-accent-500); 
-  color: var(--color-accent-500)
+.btn--appearance-accent:active {
+  background-color: var(--color-accent-500);
+  color: var(--color-neutral-0);
+  border-color: var(--color-accent-500);
+  transform: scale(0.98);
+}
+.btn--appearance-accent:disabled,
+.btn--appearance-accent.is-disabled {
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-400);
+  border-color: transparent;
+}
+
+/* --- Appearance: Opacity (Glass) --- */
+.btn--appearance-opacity {
+  background-color: rgba(255, 255, 255, 0.5); 
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  color: var(--color-neutral-0);
+  border-color: var(--color-neutral-0);
+}
+.btn--appearance-opacity:hover {
+  color: var(--color-accent-500);
+  border-color: var(--color-accent-500);
+}
+.btn--appearance-opacity:active {
+  background-color: var(--color-accent-500);
+  color: var(--color-neutral-0);
+  border-color: var(--color-accent-500);
+  transform: scale(0.98);
+}
+.btn--appearance-opacity:disabled,
+.btn--appearance-opacity.is-disabled {
+  background-color: var(--color-neutral-50);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--color-neutral-400);
+  border-color: transparent;
 }
 
 /*--- C. stickers ---*/
@@ -585,22 +664,6 @@ a.sticker--m:hover {
   opacity: 0.7;
 }
 
-.btn--round--menu {
-  flex-shrink: 0; 
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  
-  color: var(--color-accent-500);
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(56px);
-  -webkit-backdrop-filter: blur(56px);
-  border: 1px solid var(--color-neutral-50);
-}
-
 @media (max-width: 768px) {
 
   .menu {
@@ -621,18 +684,6 @@ a.sticker--m:hover {
     font-size: var(--font-size-18);
     line-height: var(--line-height-18);
   }
-
-  .menu-btn {
-    padding: var(--space-12) var(--space-24);
-    font-size: var(--font-size-18);
-    line-height: var(--line-height-18);
-  }
-
-  .btn--round--menu {
-    width: 48px;
-    height: 48px;
-  }
-
   .menu {
     height: 48px;
     padding: 0 var(--space-12);
@@ -746,22 +797,6 @@ a.sticker--m:hover {
   transform: translateY(20px) scale(0.95);
 }
 
-/* cтили крестика */
-.popup__close-btn {
-  position: absolute;
-  top: var(--space-12);
-  right: var(--space-12);
-  background: none;
-  border: none;
-  color: var(--color-neutral-400); 
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px; /* Область клика побольше */
-  transition: color 0.2s ease;
-}
-
 .popup__close-btn:hover {
   color: var(--color-neutral-0);
 }
@@ -789,25 +824,6 @@ a.sticker--m:hover {
   font-weight: 300;
   text-align: center;
   margin: 0;
-}
-
-/* модификатор кнопки (светлая кнопка на темном фоне) */
-.popup__btn-light {
-  background-color: var(--color-neutral-0);
-  color: var(--color-neutral-900);
-  font-weight: 500;
-  margin-top: var(--space-8);
-  padding: var(--space-12) var(--space-32); /* Немного компактнее стандартной --m */
-}
-
-.popup__btn-light:hover {
-  background-color: var(--color-neutral-200);
-  color: var(--color-neutral-900);
-}
-
-.popup__btn-light:active {
-  background-color: var(--color-neutral-400);
-  color: var(--color-neutral-900);
 }
 
 /* 7. UTILITIES */
