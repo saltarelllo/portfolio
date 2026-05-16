@@ -5,6 +5,7 @@
   --color-accent-500: #FF36C9; 
   --color-neutral-0: #FFFFFF;
   --color-neutral-50: #F6F7F9;
+  --color-neutral-60: #F0F2F7;
   --color-neutral-200: #D0D6DD;
   --color-neutral-400: #96A2B1;
   --color-neutral-700: #43475A;
@@ -415,7 +416,7 @@ p {
   background-color: rgba(255, 255, 255, 0.5); 
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  color: var(--color-neutral-0);
+  color: var(--color-neutral-800);
   border-color: var(--color-neutral-0);
 }
 .btn--appearance-opacity:hover {
