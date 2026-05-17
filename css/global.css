@@ -944,3 +944,18 @@ html {
     opacity: 0;
     visibility: hidden; /* Этот параметр важен, чтобы лоадер не мешал кликам после исчезновения */
 }
+
+/* === классы для анимаций === */
+
+/*а) утилита вращения */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.u-spin {
+  animation: spin 3s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
