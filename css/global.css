@@ -64,7 +64,7 @@ body {
   line-height: var(--line-height-24);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 120px;
+  padding-bottom: 100px;
   overflow-x: hidden;
 }
 
@@ -129,9 +129,7 @@ p {
   font-display: swap;
 }
 
-/* 3. ATOMS */
-
-/*--- A. icons ---*/
+/* 3. ICONS */
 
 
 .logo-icon {
@@ -356,7 +354,10 @@ p {
 .grad-cap-icon--16 { width: 16px; height: 16px; }
 
 
-/*--- B. buttons ---*/
+
+/*4. ATOMS */
+
+/*--- A. buttons ---*/
 
 /* 1. базовый класс */
 
