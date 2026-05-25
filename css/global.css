@@ -354,6 +354,39 @@ p {
 .grad-cap-icon--16 { width: 16px; height: 16px; }
 
 
+.arrow-filled-right-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: inherit; 
+}
+.arrow-filled-right-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.arrow-filled-right-icon--36 { width: 36px; height: 36px; }
+.arrow-filled-right-icon--24 { width: 24px; height: 24px; }
+.arrow-filled-right-icon--16 { width: 16px; height: 16px; }
+
+
+.arrow-filled-left-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: inherit; 
+}
+.arrow-filled-left-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.arrow-filled-left-icon--36 { width: 36px; height: 36px; }
+.arrow-filled-left-icon--24 { width: 24px; height: 24px; }
+.arrow-filled-left-icon--16 { width: 16px; height: 16px; }
+
 
 /*4. ATOMS */
 
@@ -803,6 +836,152 @@ a.sticker--m:hover {
     gap: var(--space-12);
   }
 
+}
+
+/*--- gallery-slider ---*/
+
+.gallery-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+  padding-bottom: var(--space-72);
+}
+
+.gallery-slider__viewport {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-24);
+  background-color: var(--color-neutral-200);
+  overflow: hidden;
+  max-height: 536px;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-slider__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.gallery-slider__picture {
+  display: block;
+  width: 100%;
+  flex-shrink: 0; 
+}
+
+.gallery-slider__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  user-select: none;
+}
+
+.gallery-slider__arrow--prev {
+  left: var(--space-24);
+}
+
+.gallery-slider__arrow--next {
+  right: var(--space-24);
+}
+
+.gallery-slider__dots {
+  position: absolute;
+  bottom: var(--space-24);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-8);
+  z-index: 10;
+}
+
+.gallery-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-neutral-400);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-slider__dot:hover {
+  transform: scale(1.2);
+}
+
+.gallery-slider__dot.is-active {
+  background-color: var(--color-accent-500);
+}
+
+.gallery-slider__caption {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.gallery-slider__caption-text {
+  grid-area: 1 / 1; 
+  font-family: var(--font-family);
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-18);
+  font-weight: 300;
+  color: var(--color-neutral-400);
+  margin: 0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden; 
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gallery-slider__caption-text.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+
+  .gallery-slider {
+    padding-bottom: var(--space-48);
+  }
+
+  .gallery-slider__viewport {
+    border-radius: var(--radius-16);
+  }
+
+  .gallery-slider__arrow--prev {
+    left: var(--space-8);
+  }
+
+  .gallery-slider__arrow--next {
+    right: var(--space-8);
+  }
+
+  .gallery-slider__dots {
+    bottom: var(--space-16);
+  }
+
+  .gallery-slider__caption {
+    padding: 0 var(--space-16);
+    box-sizing: border-box;
+  }
+  
+  .gallery-slider__caption-text {
+    font-size: var(--font-size-16); 
+  }
 }
 
 /* WIP-POPUP (Попап «Сайт в разработке») */
