@@ -21,6 +21,8 @@ const swup = new Swup({
 function initPageScripts() {
     console.log("Скрипты инициализированы");
 
+    initGallerySliders();
+
     // Логика копирования почты
     const emailCard = document.getElementById('emailCard');
     if (emailCard) {
@@ -93,3 +95,105 @@ document.addEventListener('DOMContentLoaded', () => {
         okBtn?.addEventListener('click', hidePopup);
     }
 });
+
+
+//скрипт для галереи-слайдера
+
+function initGallerySliders() {
+  const sliders = document.querySelectorAll('.gallery-slider:not(.is-initialized)');
+  
+  if (sliders.length === 0) return; 
+
+  sliders.forEach(slider => {
+    slider.classList.add('is-initialized'); // Ставим защиту от двойного запуска
+    
+    const track = slider.querySelector('.gallery-slider__track');
+    const slides = slider.querySelectorAll('.gallery-slider__img');
+    const btnPrev = slider.querySelector('.gallery-slider__arrow--prev');
+    const btnNext = slider.querySelector('.gallery-slider__arrow--next');
+    const dotsContainer = slider.querySelector('.gallery-slider__dots');
+    const captionContainer = slider.querySelector('.gallery-slider__caption');
+
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    const captionNodes = []; 
+
+    // Безопасно очищаем контейнеры (если они есть)
+    if (captionContainer) captionContainer.innerHTML = '';
+    if (dotsContainer) dotsContainer.innerHTML = '';
+
+    // Генерируем точки и тексты
+    slides.forEach((slide, index) => {
+      
+      // 1. Создаем точки
+      if (dotsContainer) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.classList.add('gallery-slider__dot');
+        dot.setAttribute('aria-label', `Перейти к слайду ${index + 1}`);
+        
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          goToSlide(index);
+        });
+        dotsContainer.appendChild(dot);
+      }
+
+      // 2. Создаем тексты
+      if (captionContainer) {
+        const p = document.createElement('p');
+        p.className = 'gallery-slider__caption-text';
+        p.textContent = slide.getAttribute('data-caption') || '';
+        captionContainer.appendChild(p);
+        captionNodes.push(p);
+      }
+    });
+
+    const dots = slider.querySelectorAll('.gallery-slider__dot');
+
+    function updateSlider() {
+      // Плавная прокрутка
+      track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+      // Переключаем активную точку
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === currentIndex);
+      });
+
+      // Переключаем видимость текста
+      captionNodes.forEach((p, index) => {
+        if (index === currentIndex) {
+          p.classList.add('is-active');
+        } else {
+          p.classList.remove('is-active');
+        }
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlider();
+    }
+
+    // Слушатели кнопок-стрелок
+    if (btnPrev) {
+      btnPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        updateSlider();
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        updateSlider();
+      });
+    }
+
+    // Запуск (показываем первый слайд)
+    updateSlider();
+  });
+}
