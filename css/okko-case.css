@@ -369,43 +369,41 @@
 
 /*--- D. case-card ---*/
 
+/* 1. БАЗОВЫЙ БЛОК */
 .case-card {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background-color: var(--color-neutral-0);
   border-radius: var(--radius-24);
   overflow: hidden;
   text-decoration: none;
-  flex: 1;
   width: 100%;
-  height: 250px
+  min-height: 280px;
+  padding: var(--space-24);
+  
+  /* Плавные переходы для состояний (аналогично кнопкам) */
+  transition: background-color 0.15s ease-out, 
+              transform 0.1s ease-out;
 }
 
-.case-card-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 250px;
-  text-decoration: none;
-}
-
-/*вырез под кнопку*/
-.case-card-wrapper::before {
+/* 2. ФИГУРНЫЙ ВЫРЕЗ (MASK) */
+/* Основной квадрат в правом нижнем углу */
+.case-card::before {
   content: "";
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 64px; /*размер выреза*/
+  width: 64px;
   height: 64px;
-  background-color: var(--color-neutral-50); /*цвет выреза*/
-  border-top-left-radius: var(--radius-24); /*внутреннее скругление выреза*/
+  background-color: var(--color-neutral-50); /* Фон родителя (case-organism) */
+  border-top-left-radius: var(--radius-24);
   z-index: 1;
 }
 
-/*верхний внешний угол*/
-.case-card-wrapper::after {
+/* Верхний внешний скругленный угол выреза */
+.case-card::after {
   content: "";
   position: absolute;
   bottom: 64px;
@@ -416,116 +414,155 @@
   z-index: 1;
 }
 
-/*левый внешний угол*/
-.case-card-wrapper .case-card::after {
+/* Контейнер для кнопки (служит якорем для левого скругления) */
+.case-card__action {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 2; /* Поверх белого квадрата выреза */
+}
+
+/* Левый внешний скругленный угол выреза */
+.case-card__action::before {
   content: "";
   position: absolute;
   bottom: 0;
-  right: 64px; 
+  right: 64px;
   width: 24px;
   height: 24px;
   background: radial-gradient(circle at top left, transparent 23.5px, var(--color-neutral-50) 24px);
-  z-index: 2;
   pointer-events: none;
 }
 
-/*кнопка*/
-.case-card-wrapper .btn--round {
-  position: absolute;
-  right: 1px;
-  bottom: 1px;
-  width: 48px;
-  height: 48px;
-  background-color: var(--color-accent-500);
-  color: var(--color-neutral-0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  z-index: 2;
-}
-.case-card-wrapper .btn--round:hover {
-  background-color: var(--color-neutral-0);
-  border: 2px solid var(--color-accent-500);
+/* 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ */
+.case-card__status {
+  display: none; /* Скрыто в default состоянии */
+  font-family: var(--font-family);
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-18);
+  font-weight: 300;
   color: var(--color-accent-500);
+  margin-bottom: auto; /* Работает благодаря flex: отталкивает тайтл вниз */
 }
-.case-card-wrapper .btn--round:active {
-  transform: scale(0.95);
-  background-color: var(--color-accent-500); 
-  color: var(--color-accent-500)
-}
-
-/*case-card-size*/
-
-.case-card--l {
-  width: 100%;
-  height: 100%;
-}
-
-.case-card--m {
-  width: 100%;
-  height: 100%;
-}
-
-.case-card--s {
-  width: 100%;
-  height: 100%;
-}
-
-/*sub-elements*/
 
 .case-card__title {
-  position: absolute;
-  left: var(--space-24);
-  bottom: var(--space-24);
-  margin: 0;
   font-family: var(--font-family);
   font-size: var(--font-size-28);
   line-height: var(--line-height-24);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-neutral-900);
-  max-width: calc(100% - 100px);
+  margin: auto 0 0 0; /* Прижимается к низу */
+  max-width: calc(100% - 64px); /* Защита от наложения текста на вырез */
+  z-index: 2;
+  transition: color 0.15s ease-out;
 }
 
+/* 4. СОСТОЯНИЯ (HOVER, ACTIVE, DISABLED) */
+
+.case-card:hover {
+  background-color: var(--color-neutral-60);
+}
+.case-card:hover .btn {
+  background-color: var(--color-neutral-0);
+  color: var(--color-accent-500);
+}
+.case-card:hover .case-card__title {
+  color: var(--color-accent-500);
+}
+
+.case-card:active {
+  transform: scale(0.98);
+}
+
+.case-card.is-disabled {
+  pointer-events: none; /* Блокирует клики, hover и active */
+  background-color: var(--color-neutral-50); /* Фиксируем фон */
+}
+.case-card.is-disabled .case-card__status {
+  display: block;
+}
+.case-card.is-disabled .case-card__title {
+  color: var(--color-neutral-400);
+}
+
+/* 5. АДАПТИВ */
 @media (max-width: 768px) {
-  .case-card--m, 
-  .case-card--l {
-    width: 100%;
-    height: 100%;
-  }
-  .case-card__title {
-    bottom: auto;
-    top: var(--space-24);
-    font-size: var(--font-size-24);
-    line-height: var(--line-height-24);
-  }
-  .case-card--s .case-card__title {
-    bottom: auto;
-    top: var(--space-24);
-  }
   .case-card {
     aspect-ratio: 1 / 1;
-    height: auto;
+    min-height: auto;
+  }
+  
+  .case-card__title {
+    font-size: var(--font-size-24);
+    line-height: var(--line-height-24);
+    margin: 0 0 auto 0; /* На мобилке тайтл прилипает к верху */
+  }
+
+  /* Если включен disabled, статус и тайтл выстраиваются друг за другом */
+  .case-card.is-disabled .case-card__status {
+    margin-bottom: var(--space-8);
   }
 }
 
-/* сетка для блока с кейсами */
-.case-cards-row {
+/*--- D. case-organism ---*/
+
+/* 1. БАЗОВЫЙ БЛОК */
+.case-organism {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  border-radius: var(--radius-24);
+  width: 100%;
+  
+  margin: 0 auto var(--space-72);
+}
+
+/* 2. ЭЛЕМЕНТЫ */
+
+/* Сетка для карточек */
+.case-organism__grid {
   display: flex;
   flex-direction: row;
   gap: var(--space-16);
   width: 100%;
-  padding-bottom: var(--space-72);
+  justify-content: center;
+  align-items: stretch; /* Карточки в одном ряду будут одинаковой высоты */
 }
 
-.case-cards-row .case-card-wrapper {
+/* Заставляем карточки заполнять контейнер равномерно */
+.case-organism__grid .case-card {
   flex: 1;
+  min-width: 0; /* Предотвращает разрыв flex-контейнера длинными текстами в карточке */
 }
 
+/* 3. МОДИФИКАТОРЫ */
+
+/* Состояние, когда внутри кейса нет ни одной case-card */
+.case-organism--empty {
+  padding-bottom: var(--space-48);
+}
+
+.case-organism--empty .case-organism__grid {
+  display: none;
+}
+
+/* 4. АДАПТИВ */
 @media (max-width: 768px) {
-  .case-cards-row {
-    flex-direction: column; 
-    padding-bottom: var(--space-48);
+  .case-organism {
+    padding: var(--space-48) var(--space-16) var(--space-24);
+  }
+
+  /* Перестраиваем сетку в колонку */
+  .case-organism__grid {
+    flex-direction: column;
   }
 }
 
