@@ -42,26 +42,26 @@ function initPageScripts() {
         };
     }
 
-// Глобальный перехват кликов по локальным якорям (#)
-// Работает в фазе capture, чтобы сработать ДО того, как клик поймает Swup
-window.addEventListener('click', (e) => {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
+    // Глобальный перехват кликов по локальным якорям (#)
+    // Работает в фазе capture, чтобы сработать ДО того, как клик поймает Swup
+    window.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a');
+        if (!anchor) return;
 
-    const href = anchor.getAttribute('href');
-    
-    // Проверяем, что ссылка начинается именно с # (локальный якорь на текущей странице)
-    if (href && href.startsWith('#')) {
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-            e.preventDefault();
-            e.stopPropagation(); // Важно: Swup больше не увидит этот клик!
-            
-            // Плавно скроллим с помощью Lenis
-            window.lenis.scrollTo(targetElement, { offset: -20 });
+        const href = anchor.getAttribute('href');
+        
+        // Проверяем, что ссылка начинается именно с # (локальный якорь на текущей странице)
+        if (href && href.startsWith('#')) {
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                e.preventDefault();
+                e.stopPropagation(); // Важно: Swup больше не увидит этот клик!
+                
+                // Плавно скроллим с помощью Lenis
+                window.lenis.scrollTo(targetElement, { offset: -20 });
+            }
         }
-    }
-}, { capture: true }); // Включаем фазу захвата
+    }, { capture: true }); // Включаем фазу захвата
 }
 
 // 4. События Swup
@@ -97,8 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-//скрипт для галереи-слайдера
-
+// Скрипт для галереи-слайдера с адаптивным тач-скроллом
 function initGallerySliders() {
   const sliders = document.querySelectorAll('.gallery-slider:not(.is-initialized)');
   
@@ -123,7 +122,7 @@ function initGallerySliders() {
     if (captionContainer) captionContainer.innerHTML = '';
     if (dotsContainer) dotsContainer.innerHTML = '';
 
-    // Генерируем точки и тексты
+    // Генерируем точки и тексты подписей из data-caption
     slides.forEach((slide, index) => {
       
       // 1. Создаем точки
@@ -152,16 +151,25 @@ function initGallerySliders() {
 
     const dots = slider.querySelectorAll('.gallery-slider__dot');
 
-    function updateSlider() {
-      // Плавная прокрутка
-      track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+    // Функция обновления состояния элементов слайдера
+    function updateSlider(isMobileScroll = false) {
+      // На десктопе (>768px) управляем через transform
+      if (window.innerWidth > 768) {
+        track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+      } else {
+        // На мобилке (если обновление вызвано НЕ ручным скроллом) программно двигаем скролл
+        if (!isMobileScroll) {
+          const slideWidth = track.clientWidth;
+          track.scrollLeft = currentIndex * slideWidth;
+        }
+      }
 
       // Переключаем активную точку
       dots.forEach((dot, index) => {
         dot.classList.toggle('is-active', index === currentIndex);
       });
 
-      // Переключаем видимость текста
+      // Переключаем видимость текста подписей
       captionNodes.forEach((p, index) => {
         if (index === currentIndex) {
           p.classList.add('is-active');
@@ -175,6 +183,23 @@ function initGallerySliders() {
       currentIndex = index;
       updateSlider();
     }
+
+    // [Свайп пальцем] Отслеживаем ручной скролл на мобильных устройствах
+    track.addEventListener('scroll', () => {
+      if (window.innerWidth <= 768) {
+        const slideWidth = track.clientWidth;
+        if (slideWidth === 0) return;
+
+        // Рассчитываем текущий слайд по позиции скролла
+        const newIndex = Math.round(track.scrollLeft / slideWidth);
+
+        // Если слайд сменился, обновляем точки и подписи
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < slides.length) {
+          currentIndex = newIndex;
+          updateSlider(true);
+        }
+      }
+    });
 
     // Слушатели кнопок-стрелок
     if (btnPrev) {

@@ -31,6 +31,7 @@
   --font-size-48: 48px; --line-height-48: 1.1;
   --font-size-72: 72px; --line-height-72: 1.1;
 
+  --space-4: 4px;
   --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
@@ -415,7 +416,7 @@ p {
 .btn:disabled,
 .btn.is-disabled {
   cursor: not-allowed;
-  pointer-events: none; /* Отключает hover и active */
+  pointer-events: none;
 }
 
 /* 2. размеры */
@@ -521,6 +522,30 @@ p {
   -webkit-backdrop-filter: none;
   color: var(--color-neutral-400);
   border-color: transparent;
+}
+
+/* --- Appearance:  Flat --- */
+.btn--appearance-flat {
+  color: var(--color-neutral-800);
+  border-color: transparent;
+  background-color: transparent;
+}
+.btn--appearance-flat:hover {
+  color: var(--color-accent-500);
+  border-color: transparent;
+  background-color: transparent;
+}
+.btn--appearance-flat:active {
+  color: var(--color-accent-500);
+  transform: scale(0.98);
+  border-color: transparent;
+  background-color: transparent;
+}
+.btn--appearance-flat:disabled,
+.btn--appearance-flat.is-disabled {
+  color: var(--color-neutral-400);
+  border-color: transparent;
+  background-color: transparent;
 }
 
 /*--- C. stickers ---*/
@@ -962,14 +987,28 @@ a.sticker--m:hover {
     border-radius: var(--radius-16);
   }
 
-  .gallery-slider__arrow--prev {
-    left: var(--space-8);
-  }
-
+  .gallery-slider__arrow--prev,
   .gallery-slider__arrow--next {
-    right: var(--space-8);
+    display: none;
   }
 
+  .gallery-slider__track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    transform: none !important; 
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .gallery-slider__track::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gallery-slider__picture {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  
   .gallery-slider__dots {
     bottom: var(--space-16);
   }

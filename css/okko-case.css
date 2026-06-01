@@ -88,12 +88,16 @@
   display: block;
 }
 
+.case-hero__media .case-hero__video--mobile {
+  display: none;
+}
+
 /* десктоп-вырез под чипы*/
 @media (min-width: 769px) {
   .case-hero__media {
 
     /* === СИСТЕМА НАСТРОЙКИ ВЫРЕЗА === */
-    --cutout-width: 648px; /* Меняй это значение под ширину ряда чипов */
+    --cutout-width: 700px; /* Меняй это значение под ширину ряда чипов */
     --cutout-height: 40px; /* Глубина выреза (равна margin-top) */
     --cutout-radius: 24px; /* Скругление всех углов выреза */
     --bg-color: var(--color-neutral-0); /* Цвет фона, которым перекрываем */
@@ -146,6 +150,14 @@
     align-items: center;
   }
 
+  .case-hero__media .case-hero__video--desktop {
+    display: none;
+  }
+  
+  .case-hero__media .case-hero__video--mobile {
+    display: block;
+  }
+
   .case-hero__sticker {
     transform: translateX(-50%) rotate(-2deg) scale(0.85); 
     top: -32px;
@@ -166,6 +178,7 @@
 
   .case-hero__media {
     aspect-ratio: 1 / 1;
+    height: auto;
     margin-top: 0;
     padding-top: 0;
     mask-image: none;
@@ -176,6 +189,7 @@
   .case-hero__media::after {
     display: none;
   }
+
 }
 
 /* --- B. text-block --- */
@@ -465,7 +479,7 @@
 /* 4. СОСТОЯНИЯ (HOVER, ACTIVE, DISABLED) */
 
 .case-card:hover {
-  background-color: var(--color-neutral-60);
+  background-color: var(--color-neutral-0);
 }
 .case-card:hover .btn {
   background-color: var(--color-neutral-0);

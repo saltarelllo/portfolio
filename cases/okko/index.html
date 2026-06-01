@@ -60,34 +60,35 @@
             <div class="smiley-icon smiley-icon--24">
               <svg><use href="assets/images/icons.svg#smiley-icon"></use></svg>
             </div>
-            продуктовый дизайнер
-        </div>
-
-        <div class="chip chip--default">
-           <div class="time-icon time-icon--24">
-              <svg><use href="assets/images/icons.svg#time-icon"></use></svg>
-           </div>
-           июнь-август 2024
+            Продуктовый дизайнер
         </div>
 
         <div class="chip chip--default">
            <div class="mobile-icon mobile-icon--24">
-             <svg><use href="assets/images/icons.svg#mobile-icon"></use></svg>
+              <svg><use href="assets/images/icons.svg#mobile-icon"></use></svg>
            </div>
-           mobile
+           Мобильное приложение
+        </div>
+
+        <div class="chip chip--default">
+           <div class="play-icon play-icon--24">
+             <svg><use href="assets/images/icons.svg#play-icon"></use></svg>
+           </div>
+           Стриминг
           </div>
         </div>
 
         <div class="case-hero__media">
-          <video autoplay loop muted playsinline poster="assets/images/okko/photo/hero_image_mobile.webp">
-          <source src="assets/images/okko/video/hero_animation_mob.webm" 
-            type="video/webm" 
-            media="(max-width: 800px)">
-    
-          <source src="assets/images/okko/video/hero_animation_desk.webm" 
-            type="video/webm">
-    
-          Ваш браузер не поддерживает встроенные видео.
+          <!-- Мобильное видео -->
+          <video class="case-hero__video--mobile" autoplay loop muted playsinline poster="assets/images/okko/photo/hero_image_mobile.webp">
+            <source src="assets/images/okko/video/hero_animation_mob.webm" type="video/webm">
+            Ваш браузер не поддерживает встроенное видео.
+          </video>
+
+          <!-- Десктопное видео -->
+          <video class="case-hero__video--desktop" autoplay loop muted playsinline poster="assets/images/okko/photo/hero_image_desk.webp">
+            <source src="assets/images/okko/video/hero_animation_desk.webm" type="video/webm">
+            Ваш браузер не поддерживает встроенное видео.
           </video>
         </div>
 
@@ -256,22 +257,21 @@
   </div>
   </section>
 
-    <section class="container">
+  <section class="container">
     <div class="gallery">
-    
-    <div class="gallery__grid">
-      <div class="gallery__item">
-        <picture>
-          <source srcset="assets/images/okko/photo/ratings2.webp" media="(min-width: 768px)">
-  
-          <img src="assets/images/okko/photo/ratings2_mob.webp" alt="Негативный отзыв пользовательницы Дарьи + мем">
-       </picture>
-      </div>
-   </div>
+      <div class="gallery__grid">
 
-    <div class="gallery__caption">Дарья явно больше не&nbsp;захочет платить за&nbsp;подписку</div>
-    
-  </div>
+        <div class="gallery__item">
+          <img src="assets/images/okko/photo/ratings2_1.webp" alt="Отзыв Дарьи" loading="lazy">
+        </div>
+
+        <div class="gallery__item">
+          <img src="assets/images/okko/photo/ratings2_2.webp" alt="Мем с котенком «Выводы сделаны»" loading="lazy">
+        </div>
+
+      </div>
+      <div class="gallery__caption">Дарья явно больше не&nbsp;захочет платить за&nbsp;подписку</div>
+   </div>
   </section>
 
   <section class="container">
@@ -292,19 +292,19 @@
 
   <section class="container">
     <div class="gallery">
-    
       <div class="gallery__grid">
-        <div class="gallery__item">
-          <picture>
-            <source srcset="assets/images/okko/photo/jtbd.webp" media="(min-width: 768px)">
-  
-            <img src="assets/images/okko/photo/jtbd_mob.webp" alt="JTBD для каждого сегмента">
-          </picture>
-        </div>
-      </div>
 
-    </div>
-    </section>
+        <div class="gallery__item">
+          <img src="assets/images/okko/photo/jtbd_1.webp" alt="JTBD для первого сегмента" loading="lazy">
+        </div>
+
+        <div class="gallery__item">
+          <img src="assets/images/okko/photo/jtbd_2.webp" alt="JTBD для второго сегмента" loading="lazy">
+        </div>
+
+      </div>
+   </div>
+  </section>
 
 <section class="container">
     <div class="text-block">
@@ -386,14 +386,14 @@
 
         </div>
 
-        <button class="gallery-slider__arrow gallery-slider__arrow--prev btn btn--shape-round btn--appearance-opacity" aria-label="Назад">
-         <div class="arrow-left-icon arrow-left-icon--24"> 
+        <button class="gallery-slider__arrow gallery-slider__arrow--prev btn btn--shape-round btn--appearance-flat" aria-label="Назад">
+         <div class="arrow-left-icon arrow-left-icon--36"> 
          <svg><use href="assets/images/icons.svg#arrow-filled-left-icon"></use></svg>
          </div>
         </button>
     
-        <button class="gallery-slider__arrow gallery-slider__arrow--next btn btn--shape-round btn--appearance-opacity" aria-label="Вперед">
-         <div class="arrow-left-icon arrow-left-icon--24"> 
+        <button class="gallery-slider__arrow gallery-slider__arrow--next btn btn--shape-round btn--appearance-flat" aria-label="Вперед">
+         <div class="arrow-left-icon arrow-left-icon--36"> 
          <svg><use href="assets/images/icons.svg#arrow-filled-right-icon"></use></svg>
          </div>
         </button>
@@ -454,14 +454,14 @@
 
         </div>
 
-        <button class="gallery-slider__arrow gallery-slider__arrow--prev btn btn--shape-round btn--appearance-opacity" aria-label="Назад">
-          <div class="arrow-left-icon arrow-left-icon--24"> 
+        <button class="gallery-slider__arrow gallery-slider__arrow--prev btn btn--shape-round btn--appearance-flat" aria-label="Назад">
+          <div class="arrow-left-icon arrow-left-icon--36"> 
           <svg><use href="assets/images/icons.svg#arrow-filled-left-icon"></use></svg>
           </div>
         </button>
     
-        <button class="gallery-slider__arrow gallery-slider__arrow--next btn btn--shape-round btn--appearance-opacity" aria-label="Вперед">
-          <div class="arrow-left-icon arrow-left-icon--24"> 
+        <button class="gallery-slider__arrow gallery-slider__arrow--next btn btn--shape-round btn--appearance-flat" aria-label="Вперед">
+          <div class="arrow-left-icon arrow-left-icon--36"> 
           <svg><use href="assets/images/icons.svg#arrow-filled-right-icon"></use></svg>
           </div>
         </button>
@@ -545,11 +545,15 @@
   <div class="text-block">
     <div style="visibility: hidden;" class="case-number">4</div>
     <div class="text-block__content">
-      <div class="text-block__group">
+
+        <div class="text-block__group">
         <h3 class="text-block__subtitle">Отклик</h3>
         <p class="text-block__text">
-          Стейкхолдеры положительно оценили проект в целом, особенно структурность решения и&nbsp;ориентированность на&nbsp;решение проблем пользователя. Была так&nbsp;же отмечена подробность и&nbsp;аккуратность макетов хай-фай прототипа, соблюдение правил дизайн-системы Окко и сборка компонентов.
-        </p>
+         Стейкхолдеры положительно оценили проект в целом, особенно структурность решения и&nbsp;ориентированность на&nbsp;решение проблем пользователя. Была так&nbsp;же отмечена подробность и&nbsp;аккуратность макетов хай-фай прототипа, соблюдение правил дизайн-системы Окко и сборка компонентов.
+        </p>         
+      </div>
+
+        <div class="text-block__group">
         <h3 class="text-block__subtitle">Что можно было сделать лучше</h3>
         <p class="text-block__text">
          Смотрю на кейс спустя 2 года и думаю, что точно можно оптимизировать процесс формулирования гипотез: в&nbsp;процессе было сделано достаточно много бесполезной работы.
@@ -559,11 +563,13 @@
         </p>
         <p class="text-block__text">
          Для себя на&nbsp;будущее отмечу, что фреймворк Double Diamond полезен, если времени на&nbsp;проект побольше. Для&nbsp;более коротких спринтов удобнее JTBD.
-        </p>              
+        </p>            
       </div>
     </div>
   </div>
   </section>
+
+<div style="height: 72px;"></div>
 
   <section class="container">
     <h2 class="section-title">С&nbsp;этим всё, но&nbsp;у&nbsp;меня ещё кейс есть</h2>
