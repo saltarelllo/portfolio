@@ -244,7 +244,12 @@
   font-weight: 300;
 }
 
+.text-block--no-number {
+  padding-left: 328px;
+}
+
 @media (max-width: 768px) {
+
   .text-block {
     flex-direction: column;
     gap: var(--space-24);
@@ -265,6 +270,11 @@
     font-size: var(--font-size-24);
     line-height: var(--line-height-24);
   }
+
+  .text-block--no-number {
+    padding-left: 0;
+  }
+
 }
 
 /* --- C. gallery --- */
@@ -318,8 +328,9 @@
 
 @media (max-width: 768px) {
   .gallery {
-    margin-left: -16px; 
-    margin-right: -16px;
+    margin-left: 0; 
+    margin-right: 0;
+    padding-bottom: var(--space-48);
     width: auto;
     overflow: visible;
   }
@@ -331,7 +342,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     
-    padding-left: var(--space-16);
+    padding-left: 0;
     padding-right: 0; 
     gap: var(--space-16);
     
@@ -352,7 +363,7 @@
   }
 
   .gallery__item {
-    flex: 0 0 calc(100% - 60px); 
+    flex: 0 0 100%;
     scroll-snap-align: start;
     overflow: hidden;
   }
@@ -361,24 +372,173 @@
     margin-left: var(--space-16);
     margin-right: var(--space-16);
     margin-top: var(--space-12);
-  }
-
-  .gallery__item:only-child {
-    flex: 0 0 100%;
-  }
-
-  .gallery__grid:has(.gallery__item:only-child) {
-    padding-left: var(--space-16);
-    padding-right: var(--space-16);
-  }
-
-  .gallery__grid:has(.gallery__item:only-child)::after {
-    display: none;
+    align-self: flex-start;
   }
 
   .hide-mobile { display: none !important; }
   .hide-desktop { display: block !important; }
 
+}
+
+/*--- gallery-slider ---*/
+
+.gallery-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+  padding-bottom: var(--space-72);
+}
+
+.gallery-slider__viewport {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-24);
+  background-color: var(--color-neutral-200);
+  overflow: hidden;
+  max-height: 536px;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-slider__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.gallery-slider__picture {
+  display: block;
+  width: 100%;
+  flex-shrink: 0; 
+}
+
+.gallery-slider__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  user-select: none;
+}
+
+.gallery-slider__arrow--prev {
+  left: var(--space-24);
+}
+
+.gallery-slider__arrow--next {
+  right: var(--space-24);
+}
+
+.gallery-slider__dots {
+  position: absolute;
+  bottom: var(--space-24);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-8);
+  z-index: 10;
+}
+
+.gallery-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-neutral-400);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-slider__dot:hover {
+  transform: scale(1.2);
+}
+
+.gallery-slider__dot.is-active {
+  background-color: var(--color-accent-500);
+}
+
+.gallery-slider__caption {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.gallery-slider__caption-text {
+  grid-area: 1 / 1; 
+  font-family: var(--font-family);
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-18);
+  font-weight: 300;
+  color: var(--color-neutral-400);
+  margin: 0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden; 
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gallery-slider__caption-text.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+
+  .gallery-slider {
+    padding-bottom: var(--space-48);
+  }
+
+  .gallery-slider__viewport {
+    border-radius: var(--radius-16);
+  }
+
+  .gallery-slider__arrow--prev,
+  .gallery-slider__arrow--next {
+    display: none;
+  }
+
+  .gallery-slider__track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    transform: none !important; 
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .gallery-slider__track::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gallery-slider__picture {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  
+  .gallery-slider__dots {
+    bottom: var(--space-16);
+  }
+
+  .gallery-slider__caption {
+    box-sizing: border-box;
+    align-self: flex-start;
+    padding: 0
+  }
+  
+  .gallery-slider__caption-text {
+    text-align: left;
+  }
 }
 
 /*--- D. case-card ---*/
