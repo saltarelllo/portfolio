@@ -789,6 +789,10 @@ a.sticker--m:hover {
     padding-left: var(--space-24);
   }
 
+  .menu-container {
+    bottom: var(--space-8);
+  }
+
   .menu-left__name {
     display: none;
   }
