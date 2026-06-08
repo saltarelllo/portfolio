@@ -735,6 +735,7 @@ a.sticker--m:hover {
 
 .menu {
   width: fit-content;
+  gap: var(--space-24);
   max-width: 100%;
   min-height: 56px; 
   flex-grow: 1;
@@ -805,6 +806,7 @@ a.sticker--m:hover {
     height: 48px;
     padding: 0; 
     overflow: hidden;
+    gap: 0;
   }
 
   .menu-left__name {
