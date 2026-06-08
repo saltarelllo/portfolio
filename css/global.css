@@ -790,7 +790,7 @@ a.sticker--m:hover {
   }
 
   .menu-container {
-    bottom: var(--space-8);
+    bottom: var(--space-12);
   }
 
   .menu-left__name {
