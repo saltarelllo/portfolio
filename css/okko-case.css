@@ -369,7 +369,6 @@
   }
 
   .gallery__caption {
-    margin-left: var(--space-16);
     margin-right: var(--space-16);
     margin-top: var(--space-12);
     align-self: flex-start;

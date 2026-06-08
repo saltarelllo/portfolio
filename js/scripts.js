@@ -222,3 +222,44 @@ function initGallerySliders() {
     updateSlider();
   });
 }
+
+
+// скрипт для подсветки ссылок в меню
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.menu-right__link');
+  
+  // Автоматически находим блоки на странице, на которые указывают ссылки из меню
+  const targets = Array.from(navLinks)
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px', // Срабатывает, когда блок занимает центр экрана
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('menu-right__link--active');
+
+           if (window.innerWidth <= 768) {
+              link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+          } else {
+            link.classList.remove('menu-right__link--active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  targets.forEach(target => observer.observe(target));
+});
