@@ -14,7 +14,8 @@ requestAnimationFrame(raf);
 const swup = new Swup({
     containers: ["#swup", "#swup-menu"],
     plugins: [new SwupHeadPlugin()],
-    cache: true
+    cache: true,
+    animateHistoryBrowsing: true,
 });
 
 // 3. Функция для оживления элементов на каждой странице
