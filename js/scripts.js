@@ -28,14 +28,14 @@ function initPageScripts() {
     const backBtn = document.querySelector('.js-back-btn');
     if (backBtn) {
         backBtn.addEventListener('click', (e) => {
-            // Проверяем, перешел ли пользователь с другой страницы ТВОЕГО сайта
-            // (защита от того, что он открыл ссылку напрямую в новой вкладке)
-            if (document.referrer && document.referrer.includes(window.location.host)) {
-                e.preventDefault(); // Отменяем стандартный переход по href="index.html"
-                window.history.back(); // Возвращаем на шаг назад
-                // ПРИМЕЧАНИЕ: Swup автоматически перехватит этот back() и сделает анимацию!
+            // Проверяем: либо мы гуляли по сайту через Swup (флаг true), 
+            // либо есть классический referrer (если Swup почему-то не сработал)
+            if (window.hasInternalHistory || (document.referrer && document.referrer.includes(window.location.host))) {
+                e.preventDefault(); 
+                window.history.back(); // Возвращаем назад
             }
-            // Если истории нет, скрипт ничего не сделает, и сработает обычный href="index.html"
+            // Иначе (если открыли по прямой ссылке в новой вкладке) 
+            // сработает стандартный href="index.html" и уведет на главную
         });
     }
 
@@ -81,7 +81,9 @@ function initPageScripts() {
 }
 
 // 4. События Swup
+window.hasInternalHistory = false;
 swup.hooks.on('content:replace', () => {
+    window.hasInternalHistory = true;
     initPageScripts(); 
     window.lenis.scrollTo(0, { immediate: true });
 });
