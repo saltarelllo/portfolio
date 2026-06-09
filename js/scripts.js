@@ -23,6 +23,8 @@ function initPageScripts() {
 
     initGallerySliders();
 
+    initMenuHighlighting();
+
     // Логика копирования почты
     const emailCard = document.getElementById('emailCard');
     if (emailCard) {
@@ -226,21 +228,43 @@ function initGallerySliders() {
 
 // скрипт для подсветки ссылок в меню
 
-document.addEventListener('DOMContentLoaded', () => {
+/// Привязываем обсервер к window, чтобы избежать любых проблем с областями видимости
+window.menuObserver = null;
+
+function initMenuHighlighting() {
   const navLinks = document.querySelectorAll('.menu-right__link');
   
-  // Автоматически находим блоки на странице, на которые указывают ссылки из меню
-  const targets = Array.from(navLinks)
-    .map(link => document.querySelector(link.getAttribute('href')))
-    .filter(Boolean);
+  // Если ссылок нет — прерываемся
+  if (navLinks.length === 0) return;
 
+  // Очищаем старый обсервер перед созданием нового (защита для Swup)
+  if (window.menuObserver) {
+    window.menuObserver.disconnect();
+  }
+
+  // Ищем целевые секции на странице
+  const targets = Array.from(navLinks)
+    .map(link => {
+      const href = link.getAttribute('href');
+      // Защита: проверяем, что href - это локальный якорь
+      if (href && href.startsWith('#') && href.length > 1) {
+        return document.querySelector(href);
+      }
+      return null;
+    })
+    .filter(target => target !== null); // Оставляем только те секции, которые реально есть
+
+  // Если на странице нет нужных секций — прерываемся
+  if (targets.length === 0) return;
+
+  // Настраиваем обсервер
   const observerOptions = {
     root: null,
-    rootMargin: '-50% 0px -50% 0px', // Срабатывает, когда блок занимает центр экрана
+    rootMargin: '-50% 0px -50% 0px',
     threshold: 0
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  window.menuObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
@@ -249,10 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('menu-right__link--active');
 
-           if (window.innerWidth <= 768) {
+            // Центрируем активную ссылку на мобилке
+            if (window.innerWidth <= 768) {
               link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }
-
           } else {
             link.classList.remove('menu-right__link--active');
           }
@@ -261,5 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  targets.forEach(target => observer.observe(target));
-});
+  // Запускаем слежку
+  targets.forEach(target => window.menuObserver.observe(target));
+}
