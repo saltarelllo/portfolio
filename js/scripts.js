@@ -25,6 +25,20 @@ function initPageScripts() {
 
     initMenuHighlighting();
 
+    const backBtn = document.querySelector('.js-back-btn');
+    if (backBtn) {
+        backBtn.addEventListener('click', (e) => {
+            // Проверяем, перешел ли пользователь с другой страницы ТВОЕГО сайта
+            // (защита от того, что он открыл ссылку напрямую в новой вкладке)
+            if (document.referrer && document.referrer.includes(window.location.host)) {
+                e.preventDefault(); // Отменяем стандартный переход по href="index.html"
+                window.history.back(); // Возвращаем на шаг назад
+                // ПРИМЕЧАНИЕ: Swup автоматически перехватит этот back() и сделает анимацию!
+            }
+            // Если истории нет, скрипт ничего не сделает, и сработает обычный href="index.html"
+        });
+    }
+
     // Логика копирования почты
     const emailCard = document.getElementById('emailCard');
     if (emailCard) {
