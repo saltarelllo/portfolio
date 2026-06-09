@@ -807,6 +807,7 @@ a.sticker--m:hover {
     padding: 0; 
     overflow: hidden;
     gap: 0;
+    padding-left: var(--space-12);
   }
 
   .menu-left__name {
