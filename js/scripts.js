@@ -96,25 +96,6 @@ window.addEventListener('load', () => {
     initPageScripts();
 });
 
-// Логика поп-апа (срабатывает только один раз при посещении)
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('welcome-popup');
-    if (popup && !sessionStorage.getItem('portfolioPopupSeen')) {
-        setTimeout(() => popup.classList.remove('popup--hidden'), 1000);
-        
-        const closeBtn = document.getElementById('close-popup');
-        const okBtn = document.getElementById('ok-popup');
-        
-        const hidePopup = () => {
-            popup.classList.add('popup--hidden');
-            sessionStorage.setItem('portfolioPopupSeen', 'true');
-        };
-
-        closeBtn?.addEventListener('click', hidePopup);
-        okBtn?.addEventListener('click', hidePopup);
-    }
-});
-
 
 // Скрипт для галереи-слайдера с адаптивным тач-скроллом
 function initGallerySliders() {
