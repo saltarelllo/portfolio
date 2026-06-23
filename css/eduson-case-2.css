@@ -232,6 +232,10 @@
   font-weight: 300;
 }
 
+.text-block--no-number {
+  padding-left: 328px;
+}
+
 @media (max-width: 768px) {
   .text-block {
     flex-direction: column;
@@ -247,6 +251,10 @@
   .text-block__text {
     font-size: var(--font-size-18);
     line-height: var(--line-height-18);
+  }
+
+  .text-block--no-number {
+    padding-left: 0;
   }
 }
 
@@ -285,6 +293,7 @@
 
 .gallery__caption {
   align-self: center;
+  text-align: center;
   max-width: 800px;
   font-family: var(--font-family);
   font-size: var(--font-size-18);

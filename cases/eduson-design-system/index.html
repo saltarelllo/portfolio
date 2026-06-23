@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
@@ -12,140 +13,399 @@
 </head>
 
 <body>
-  
-<div id="site-loader" class="site-loader"></div>
 
- <div class="menu-container transition-fade" id="swup-menu">
-  <a href="" class="btn btn--size-m btn--appearance-opacity btn--shape-round js-back-btn"> 
-  <svg class="arrow-left-icon arrow-left-icon--24" >
-    <use href="assets/images/icons.svg#arrow-left-icon"></use>
-  </svg>
-  </a>
+  <div id="site-loader" class="site-loader"></div>
 
-  <nav class="menu">
-    <div class="menu-left">
-      <a href="" class="logo-wrapper">
-      <span class="menu-left__name">M@ша Аф0нин@</span>
-      
-      <div class="logo-icon logo-icon--24">
-        <svg>
-          <use href="assets/images/icons.svg#logo-icon" style="color: var(--color-accent-500)"></use>
-        </svg>
-      </div>
+    <div class="menu-container transition-fade" id="swup-menu">
+      <a href="" class="btn btn--size-m btn--appearance-opacity btn--shape-round js-back-btn"> 
+        <div class="arrow-left-icon arrow-left-icon--24" style="color:var(--color-accent-500)" > 
+          <svg><use href="assets/images/icons.svg#arrow-left-icon"></use></svg>
+        </div>
       </a>
-    </div>
-    
-    <div class="menu-right">
-      <div class="menu-right__links">
-        <a href="#cases" class="menu-right__link">Кейсы</a>
-        <a href="#contact" class="btn btn--size-m btn--appearance-default btn--shape-pill">Написать</a>
-      </div>
-    </div>
-  </nav>
-  </div>
 
-<main id="swup" class="transition-fade">
-  <section>
-    <div class="container" style="margin-top: var(--space-72)">
-      
-      <section class="case-hero">
-        <a href="https://eduson.academy/" target="_blank" rel="noopener noreferrer" class="sticker sticker--m case-hero__sticker">
-          Академия Эдюсон
-        </a>
-
-        <h1 class="case-hero__title">
-          Сборка базовых компонентов дизайн-системы Эдюсон
-        </h1>
-
-        <div class="case-hero__chips">
-          <div class="chip chip--accent">
-            <div class="smiley-icon smiley-icon--24">
-              <svg><use href="assets/images/icons.svg#smiley-icon"></use></svg>
+      <nav class="menu">
+        <div class="menu-left"></div>
+        <div class="menu-right">
+            <div class="menu-right__links">
+              <a href="#problem" class="menu-right__link">Проблема</a>
+              <a href="#solution" class="menu-right__link">Решение</a>
+              <a href="#results" class="menu-right__link">Результат</a>
             </div>
-            Продуктовый дизайнер
+            <a href="#contact" class="btn btn--size-m btn--appearance-default btn--shape-pill">Написать</a>
         </div>
-
-        <div class="chip chip--default">
-           <div class="smiley-icon smiley-icon--24">
-              <svg><use href="assets/images/icons.svg#design-system-icon"></use></svg>
-           </div>
-           Дизайн-системы
-        </div>
-
-        <div class="chip chip--default">
-           <div class="design-system-icon design-system-icon--24">
-              <svg><use href="assets/images/icons.svg#grad-cap-icon"></use></svg>
-           </div>
-           Эдтех
-        </div>
-     </div>
-
-        <div class="case-hero__media">
-          <video class="case-hero__video--mobile" autoplay loop muted playsinline poster="assets/images/okko/photo/hero_image_desk.webp">
-            <source src="assets/images/eduson/case1/video/hero_animation_desk.webm" type="video/webm">
-            Ваш браузер не поддерживает встроенное видео.
-          </video>
-
-          <video class="case-hero__video--desktop" autoplay loop muted playsinline poster="assets/images/eduson/case1/photo/hero_image_mobile.webp">
-            <source src="assets/images/eduson/case1/video/hero_animation_mob.webm" type="video/webm">
-            Ваш браузер не поддерживает встроенное видео.
-          </video>
-        </div>
-
-
+      </nav>
     </div>
-</section>
 
+  <main id="swup" class="transition-fade">
 
+    <section id="hero">
+      <div class="container" style="margin-top: var(--space-72)">
+        <section class="case-hero">
+          <a href="https://eduson.academy/" target="_blank" rel="noopener noreferrer" class="sticker sticker--m case-hero__sticker">
+            Академия Эдюсон
+          </a>
+          <h1 class="case-hero__title">
+            Сборка базовых компонентов дизайн-системы
+          </h1>
+          <div class="case-hero__chips">
+        
+            <div class="chip chip--accent">
+              <div class="smiley-icon smiley-icon--24">
+                <svg><use href="assets/images/icons.svg#smiley-icon"></use></svg>
+              </div>
+              Продуктовый дизайнер
+            </div> 
 
-<section id="cases" class="container" style="margin-bottom: var(--space-72);">
-  <h2 class="section-title">С этим всё, но у меня ещё кейс есть</h2>
-  
-  <div class="case-cards-row">
-    <a href="cases/okko" class="case-card-wrapper">
-      <div class="case-card case-card--m">
-        <h3 class="case-card__title">Редизайн сценария загрузок в Окко</h3>
-      </div>
-      <div class="btn btn--round"> <div class="arrow-up-right-icon arrow-up-right-icon--24">
-          <svg><use href="assets/images/icons.svg#arrow-up-right-icon"></use></svg>
+            <div class="chip chip--default">
+              <div class="smiley-icon smiley-icon--24">
+                <svg><use href="assets/images/icons.svg#design-system-icon"></use></svg>
+              </div>
+              Дизайн-системы
+            </div> 
+          
+            <div class="chip chip--default">
+              <div class="design-system-icon design-system-icon--24">
+                <svg><use href="assets/images/icons.svg#grad-cap-icon"></use></svg>
+              </div>
+              Эдтех
+            </div> 
+            
+          </div> 
+            <div class="case-hero__media">
+
+              <video class="case-hero__video--mobile" autoplay loop muted playsinline poster="assets/images/okko/photo/hero_image_desk.webp">
+                <source src="assets/images/eduson/case1/video/hero_animation_desk.webm" type="video/webm">
+                Ваш браузер не поддерживает встроенное видео.
+              </video>
+
+              <video class="case-hero__video--desktop" autoplay loop muted playsinline poster="assets/images/eduson/case1/photo/hero_image_mobile.webp">
+                <source src="assets/images/eduson/case1/video/hero_animation_mob.webm" type="video/webm">
+                Ваш браузер не поддерживает встроенное видео.
+              </video>
+            </div> 
+        </section>
+      </div> 
+    </section>
+
+    <section id="problem" class="container">
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <h2 class="text-block__title">Контекст и&nbsp;проблема</h2>
+
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">О&nbsp;компании</h3>
+              <p class="text-block__text">
+                Эдюсон&nbsp;&mdash; онлайн-академия дополнительного профессионального образования. С&nbsp;2013 года занимается корпоративным обучением для сотрудников Сбера, РЖД, Билайна, МТС и&nbsp;других крупных российских компаний
+              </p>
+          </div>
+
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Проблема</h3>
+              <p class="text-block__text">
+                Отсутствие порядка в&nbsp;базовой дизайн-системе.
+              </p>
+              <ul class="text-block__text">
+                <li>Ручная сборка темной темы. У&nbsp;нас были только статичные базовые цвета. Чтобы сделать темную версию слайда, дизайнерам приходилось вручную перекрашивать каждый элемент.</li>
+                <li>Зоопарк иконок. Единого пака не&nbsp;существовало. Вместо компонентов использовались разрозненные бесплатные ассеты из&nbsp;Figma Community. Это ломало визуальную консистентность и&nbsp;удешевляло вид продукта.</li>
+                <li>У&nbsp;старшего дизайнера физически не&nbsp;хватало времени на&nbsp;инфраструктурные задачи из-за потока продуктовых фич.</li>
+              </ul>
+          </div>
         </div>
       </div>
-    </a>
-  </div>
-</section>
-</main>
+
+      <div class="gallery">
+    
+        <div class="gallery__grid">
+          <div class="gallery__item">
+            <picture>
+              <source srcset="assets/images/eduson/case1/photo/image1_desk.webp" media="(min-width: 768px)">
+  
+              <img src="assets/images/eduson/case1/photo/image1_mob.webp" alt="Скриншот дизайн-системы «до»">
+            </picture>
+          </div>
+        </div>
+    
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Инициатива</h3>
+              <p class="text-block__text">
+                Я&nbsp;видела, что у&nbsp;старших дизов нет времени на&nbsp;решение мелких задач системы. Страдала консистентность продукта&nbsp;&mdash; разрозненные иконки, отсутствие сеток и&nbsp;компонентов порождало сущности, которые плохо влияли на&nbsp;визуальное качество продукта. Еще в&nbsp;команде было очень много ручного труда.
+              </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    
+    <section id="solution" class="container">
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <h2 class="text-block__title">Решение</h2>
+
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Токены</h3>
+              <p class="text-block__text">
+                Я&nbsp;решила начать с&nbsp;базовых цветовых токенов. Для наших презентаций и&nbsp;лендингов часто требовались макеты в&nbsp;темной теме&nbsp;&mdash; и&nbsp;дизайнеры красили все вручную. Я&nbsp;нашла время и&nbsp;настроила систему, которая позволяет красить макеты за&nbsp;секунду.
+              </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="gallery">
+    
+        <div class="gallery__grid">
+          <div class="gallery__item">
+            <picture>
+              <source srcset="assets/images/eduson/case1/photo/image2_desk.webp" media="(min-width: 768px)">
+  
+              <img src="assets/images/eduson/case1/photo/image2_desk.webp" alt="Скриншот из Figma с токенами">
+            </picture>
+          </div>
+        </div>
+
+        <div class="gallery__caption">Теперь у&nbsp;компании есть система токенов, включающая статичные цвета и&nbsp;2&nbsp;мода&nbsp;&mdash; светлый и&nbsp;темный. По&nbsp;отзывам коллег это экономит им&nbsp;много времени и&nbsp;позволяет делать более вариативные макеты для заказчиков</div>
+    
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+              <p class="text-block__text">
+                А&nbsp;еще это база для будущей разработки&nbsp;&mdash; потому что помимо цветовых токенов я&nbsp;настроила базовые отступы, скругления и&nbsp;паддинги. При развитии продукта это сэкономит нам часы на&nbsp;сверке макетов.
+              </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Система иконок</h3>
+              <p class="text-block__text">
+                Вместо того, чтобы пользоваться разрозненными сетами иконок из&nbsp;Community, я&nbsp;собрала единую базу, которая закрывает 100% потребностей наших лендингов.
+              </p>
+              <p class="text-block__text">
+                Иконок в&nbsp;системе два типа&nbsp;&mdash; базовые интерфейсные и&nbsp;&laquo;стеклянные&raquo; для иллюстраций. С&nbsp;базовыми была проблема, что они были собраны из&nbsp;разных бесплатных файлов и&nbsp;очень отличались друг от&nbsp;друга.
+              </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="gallery">
+    
+        <div class="gallery__grid">
+
+          <div class="gallery__item">
+            <img src="assets/images/eduson/case1/photo/image3a_desk.webp" alt="До" loading="lazy">
+          </div>
+
+          <div class="gallery__item">
+            <img src="assets/images/eduson/case1/photo/image3b_desk.webp" alt="После" loading="lazy">
+          </div>
+
+        </div>
+
+        <div class="gallery__caption">До&nbsp;принятия единой системы иконки разнились по&nbsp;толщине, стилю и&nbsp;размеру. Переход на&nbsp;Phosphor помог нам улучшить консистентность и&nbsp;избавил от&nbsp;хаоса</div>
+    
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+              <p class="text-block__text">
+                Я&nbsp;предложила использовать бесплатную библиотеку Phosphor Icons. В&nbsp;ней больше 9000&nbsp;иконок, которые закрывают все наши потребности. Ей&nbsp;удобно пользоваться как с&nbsp;помощью плагина, так и&nbsp;на&nbsp;сайте. Переход на&nbsp;Phosphor исключил время на&nbsp;поиск левых иконок и&nbsp;облегчил труд дизайнеров, а&nbsp;еще сделал бренд более визуально констистентным.
+              </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Стеклянные иконки</h3>
+              <p class="text-block__text">
+                Стеклянные иконки&nbsp;&mdash; это микро-иллюстрации для заголовков и&nbsp;важных поинтов. В&nbsp;начале моей работы был собран базовый сет из&nbsp;20&nbsp;штук и&nbsp;вокруг было поле, полное бесплатных ассетов и&nbsp;разных вариантов одного и&nbsp;того&nbsp;же.
+              </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="gallery">
+    
+        <div class="gallery__grid">
+
+          <div class="gallery__item">
+            <img src="assets/images/eduson/case1/photo/image4a_desk.webp" alt="До" loading="lazy">
+          </div>
+
+          <div class="gallery__item">
+            <img src="assets/images/eduson/case1/photo/image4b_desk.webp" alt="После" loading="lazy">
+          </div>
+
+        </div>
+
+        <div class="gallery__caption">До и после</div>
+    
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+              <p class="text-block__text">
+                Я&nbsp;выработала единый алгоритм сборки стеклянных иконок в&nbsp;компонент, ввела четкое именование слоев, задала цвета из&nbsp;токенов, обводки и&nbsp;эффекты. Если коллеге нужно создать свою иконку, он&nbsp;может легко это сделать, обратившись к&nbsp;инструкции&nbsp;&mdash; и&nbsp;ему не&nbsp;нужно подбирать вручную степень блюра или цвет тени.
+              </p>
+              <p class="text-block__text">
+                Так&nbsp;же я&nbsp;сделала три варианта цвета иконок&nbsp;&mdash; и&nbsp;сделала их&nbsp;сложными гибкими компонентами. Раньше иконки красились вручную, если требовалось сделать их&nbsp;под темную тему или под другой продукт. Теперь все цвета переключаются напрямую из&nbsp;компонента, сокращая время работы и&nbsp;улучшая констистентность.
+          </div>
+        </div>
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Кастом</h3>
+              <p class="text-block__text">
+                И&nbsp;самое интересное&nbsp;&mdash; кастомные иконки. Я&nbsp;сделала сложные компоненты, состоящие из&nbsp;базовой иконки, наложенные на&nbsp;стеклянные формы. Теперь можно создавать иконки под любые темы, что опять&nbsp;же ускоряет время работы и&nbsp;облегчает иллюстрацию текста.
+              </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="gallery">
+    
+        <div class="gallery__grid">
+          <div class="gallery__item">
+            <picture>
+              <source srcset="assets/images/eduson/case1/photo/image5_desk.webp" media="(min-width: 768px)">
+  
+              <img src="assets/images/eduson/case1/photo/image5_desk.webp" alt="Скриншот из Figma с изображением сложного компонента иконки">
+            </picture>
+          </div>
+        </div>
+
+      </div>
+      
+    </section>
+
+    <section id="results" class="container">
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <h2 class="text-block__title">Презентация решения и&nbsp;результат</h2>
+
+          <div class="text-block__group">
+              <p class="text-block__text">
+                На&nbsp;викли и&nbsp;в&nbsp;чатах я&nbsp;презентовала решение коллегам и&nbsp;показала, как использовать токены и&nbsp;что можно делать с&nbsp;иконками. Получила такие отзывы:
+              </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="gallery">
+    
+        <div class="gallery__grid">
+          <div class="gallery__item">
+            <picture>
+              <source srcset="assets/images/eduson/case1/photo/image6_desk.webp" media="(min-width: 768px)">
+  
+              <img src="assets/images/eduson/case1/photo/image6_desk.webp" alt="Скриншоты отзывов коллег">
+            </picture>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-block text-block--no-number">
+        <div class="text-block__content">
+          <div class="text-block__group">
+            <h3 class="text-block__subtitle">Результаты</h3>
+              <ul class="text-block__text">
+                <li>Старшие дизайнеры разгружены от&nbsp;инфраструктурной рутины</li>
+                <li>Лендинги стали выглядеть дороже и&nbsp;консистентнее за&nbsp;счет единого стиля графики</li>
+                <li>Избавились от&nbsp;рутинной перекраски макетов и&nbsp;поиска ассетов</li>
+              </ul>
+            <h3 class="text-block__subtitle">Что можно было сделать лучше</h3>
+              <p class="text-block__text">
+                До&nbsp;работы с&nbsp;дизайн-системами я&nbsp;была уверена, что все должно быть идеально до&nbsp;пикселя. На&nbsp;практике поняла, что в&nbsp;дизайн-системе остается только&nbsp;то, что реально работает для команды, и&nbsp;часто можно осознать, что даже самые продвинутые фичи не&nbsp;приживаются, потому что они не&nbsp;нужны :) Это можно принять, но&nbsp;продолжать искать идеал
+              </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="cases" class="container" style="margin-bottom: var(--space-72);">
+
+      <h2 class="section-title">С этим всё, но у меня ещё кейс есть</h2>
+  
+      <div class="case-cards-row">
+        <a href="cases/okko" class="case-card-wrapper">
+
+          <div class="case-card case-card--m">
+            <h3 class="case-card__title">Редизайн сценария загрузок в Окко</h3>
+          </div>
+
+          <div class="btn btn--round"> 
+            <div class="arrow-up-right-icon arrow-up-right-icon--24">
+              <svg><use href="assets/images/icons.svg#arrow-up-right-icon"></use></svg>
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+    </section>
+
+  </main>
 
   <footer id="contact" class="container"> 
     <h2 class="section-title">Контакты</h2>
-    <div class="footer">
-      <div class="footer-card" id="about">
-        <div class="footer-card__title">Обо мне</div>
-        <div class="footer-card__text">
-          Я&nbsp;училась дизайну в&nbsp;ВШЭ и&nbsp;Bang Bang Education, люблю анекдоты и&nbsp;занимаюсь рисованием на&nbsp;досуге
-        </div>
-      </div>
+      <div class="footer">
 
-      <div class="footer-right">
-        <div class="footer-card">
-          <div class="footer-card__title">Написать</div>
-          <a href="https://t.me/mafonina" target="_blank" class="footer-card__text">Telegram</a>
+        <div class="footer-card" id="about">
+          <div class="footer-card__title">Обо мне</div>
+          <div class="footer-card__text">
+            Я&nbsp;училась дизайну в&nbsp;ВШЭ и&nbsp;Bang Bang Education, люблю анекдоты и&nbsp;занимаюсь рисованием на&nbsp;досуге
+          </div>
         </div>
-        <div class="footer-card" id="resume">
-          <div class="footer-card__title">Узнать больше</div>
-          <a href="assets/files/Afonina_UX-UI-designer.pdf" target="_blank" class="footer-card__text">Резюме</a>
+
+        <div class="footer-right">
+
+          <div class="footer-card">
+            <div class="footer-card__title">Написать</div>
+            <a href="https://t.me/mafonina" target="_blank" class="footer-card__text">Telegram</a>
+          </div>
+        
+          <div class="footer-card" id="resume">
+            <div class="footer-card__title">Узнать больше</div>
+            <a href="assets/files/Afonina_UX-UI-designer.pdf" target="_blank" class="footer-card__text">Резюме</a>
+          </div>
+
+          <div class="footer-card footer-card--copy" id="emailCard">
+            <div class="footer-card__title">Вдруг вам нужна моя почта</div>
+            <div class="footer-card__text js-email">saltarelllllo@gmail.com</div>
+          </div>
+
         </div>
-        <div class="footer-card footer-card--copy" id="emailCard">
-          <div class="footer-card__title">Вдруг вам нужна моя почта</div>
-          <div class="footer-card__text js-email">saltarelllllo@gmail.com</div>
-        </div>
-      </div>
-    </div>
+
+      </div> 
   </footer>
 
-<script src="https://unpkg.com/@swup/head-plugin" defer></script>
-<script src="https://unpkg.com/swup@4" defer></script>
-<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script src="js/scripts.js" defer></script>
+  <script src="https://unpkg.com/@swup/head-plugin" defer></script>
+  <script src="https://unpkg.com/swup@4" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="js/scripts.js" defer></script>
 
 </body>
+
 </html>
