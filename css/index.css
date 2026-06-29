@@ -26,38 +26,6 @@ svg.logo-desktop-version {
   }
 }
 
-/*--- B. competence-card ---*/
-
-.competence-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  background-color: var(--color-neutral-0);
-  border-radius: var(--radius-24);
-  padding: 32px;
-  box-shadow: 0 -4px 12px rgba(255, 30, 176, 0.06);
-  min-width: 350px; 
-}
-
-.competence-card__text {
-  font-family: var(--font-family);
-  font-size: var(--font-size-20);
-  line-height: var(--line-height-20);
-  font-weight: 300;
-  color: var(--color-neutral-900);
-  margin: 0;
-}
-
-.competence-card > .sticker--s {
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  z-index: 2;
-  margin: 0;
-}
-
 /*--- C. case-card ---*/
 
 /* 1. БАЗОВЫЙ БЛОК */
@@ -327,7 +295,7 @@ svg.logo-desktop-version {
   left: 50%;
   transform: translateX(-50%); 
   width: 110vw;
-  height: 75%;
+  height: 80%;
   background-color: var(--color-neutral-0);
   border-radius: 0 0 50% 50%;
   z-index: -1;
@@ -398,7 +366,7 @@ text-align: center;
 
   .hero__bg {
    width: 200vw;
-   height: 55%;
+   height: 80%;
   }
 
   .hero__subtitle {
