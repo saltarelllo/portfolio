@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: B2B — М@ша Аф0нин@</title>
+
+    <base href="/portfolio/">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/b2b.css">
+</head>
+
+<body>
+
+    <div id="site-loader" class="site-loader"></div>
+
+    <div class="menu-container transition-fade" id="swup-menu">
+        <a href="" class="btn btn--size-m btn--appearance-opacity btn--shape-round js-back-btn">
+            <div class="arrow-left-icon arrow-left-icon--24" style="color:var(--color-accent-500)">
+                <svg>
+                    <use href="assets/images/icons.svg#arrow-left-icon"></use>
+                </svg>
+            </div>
+        </a>
+
+        <nav class="menu">
+            <div class="menu-left"></div>
+            <div class="menu-right">
+                <div class="menu-right__links">
+                    <a href="#problem" class="menu-right__link">Проблема</a>
+                    <a href="#solution" class="menu-right__link">Решение</a>
+                    <a href="#results" class="menu-right__link">Результат</a>
+                </div>
+                <a href="#contact" class="btn btn--size-m btn--appearance-default btn--shape-pill">Написать</a>
+            </div>
+        </nav>
+    </div>
+
+    <main id="swup" class="transition-fade">
+
+        <section id="hero">
+            <div class="container" style="margin-top: var(--space-72)">
+                <section class="case-hero">
+                    <div class="sticker sticker--m case-hero__sticker">
+                        NDA
+                    </div>
+                    <h1 class="case-hero__title">
+                        Интерфейс центра мониторинга беспилотного транспорта
+                    </h1>
+                    <div class="case-hero__chips">
+
+                        <div class="chip chip--accent">
+                            <div class="smiley-icon smiley-icon--24">
+                                <svg>
+                                    <use href="assets/images/icons.svg#smiley-icon"></use>
+                                </svg>
+                            </div>
+                            Продуктовый дизайнер
+                        </div>
+
+                        <div class="chip chip--default">
+                            <div class="smiley-icon smiley-icon--24">
+                                <svg>
+                                    <use href="assets/images/icons.svg#design-system-icon"></use>
+                                </svg>
+                            </div>
+                            B2B
+                        </div>
+
+                        <div class="chip chip--default">
+                            <div class="design-system-icon design-system-icon--24">
+                                <svg>
+                                    <use href="assets/images/icons.svg#grad-cap-icon"></use>
+                                </svg>
+                            </div>
+                            Админка
+                        </div>
+
+                    </div>
+                    <div class="case-hero__media">
+
+                        <video class="case-hero__video--mobile" autoplay loop muted playsinline
+                            poster="assets/images/okko/photo/hero_image_desk.webp">
+                            <source src="assets/images/eduson/case1/video/hero_animation_desk.webm" type="video/webm">
+                            Ваш браузер не поддерживает встроенное видео.
+                        </video>
+
+                        <video class="case-hero__video--desktop" autoplay loop muted playsinline
+                            poster="assets/images/eduson/case1/photo/hero_image_mobile.webp">
+                            <source src="assets/images/eduson/case1/video/hero_animation_mob.webm" type="video/webm">
+                            Ваш браузер не поддерживает встроенное видео.
+                        </video>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="problem" class="container">
+
+            <div class="text-block text-block--no-number">
+                <div class="text-block__content">
+                    <h2 class="text-block__title">Контекст и&nbsp;задача</h2>
+
+                    <div class="text-block__group">
+                        <h3 class="text-block__subtitle">Контекст</h3>
+                        <p class="text-block__text">
+                            Крупный бигтех запускает новый продукт&nbsp;&mdash; сервис беспилотного такси. Для обеспечения безопасности, контроля ситуации на&nbsp;дорогах и&nbsp;бесперебойной работы флота требуется внутренний инструмент&nbsp;&mdash; автоматизированное рабочее место инженера мониторинга
+                        </p>
+                    </div>
+
+                    <div class="text-block__group">
+                        <h3 class="text-block__subtitle">Сроки</h3>
+                        <p class="text-block__text">
+                            5 дней
+                        </p>
+                    </div>
+
+                    <div class="text-block__group">
+                        <h3 class="text-block__subtitle">Задача</h3>
+                        <p class="text-block__text">
+                            Спроектировать сервис мониторинга беспилотных машин, которым пользуются инженеры центра мониторинга. Сервис должен помогать:
+                        </p>
+                        <ul class="text-block__text">
+                            <li>отслеживать состояние автомобилей</li>
+                            <li>выявлять проблемы</li>
+                            <li>быстро реагировать на инциденты</li>
+                            <li>принимать решения о дальнейших действиях</li>
+                        </ul>
+                        <p class="text-block__text">
+                            Каждый автомобиль может передавать данные&nbsp;о:
+                        </p>
+                        <ul class="text-block__text">
+                            <li>уровне заряда батареи</li>
+                            <li>технических неисправностях</li>
+                            <li>текущем статусе (в поездке / свободен / на зарядке / вне сервиса)</li>
+                            <li>местоположении</li>
+                            <li>наличии ошибок в системе</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery__grid">
+                    <div class="gallery__item">
+                        <picture>
+                            <source srcset="assets/images/eduson/case1/photo/image1_desk.webp"
+                                media="(min-width: 768px)">
+
+                            <img src="assets/images/eduson/case1/photo/image1_mob.webp"
+                                alt="Скриншот дизайн-системы «до»">
+                        </picture>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="solution" class="container">
+
+            <div class="text-block text-block--no-number">
+                <div class="text-block__content">
+                    <h2 class="text-block__title">Погружение в&nbsp;тему и&nbsp;бенчмаркинг</h2>
+
+                    <div class="text-block__group">
+                        <h3 class="text-block__subtitle">Бенчмаркинг</h3>
+                        <p class="text-block__text">
+                            На&nbsp;этапе исследований был проведен бенчмаркинг существующих систем Fleet Management и&nbsp;проанализированы публичные кейсы мировых лидеров автономного вождения. Это помогло сформулировать 3&nbsp;ключевых принципа интерфейса:
+                        </p>
+                        <ul class="text-block__text">
+                            <li>Тихий дашборд: Пока всё идет штатно, интерфейс ведет себя нейтрально и&nbsp;не&nbsp;отвлекает оператора.</li>
+                            <li>Контрастность: Если возникает критическая проблема, визуальный фокус мгновенно переключается на&nbsp;неё.</li>
+                            <li>Контекстуальность: Любое уведомление об&nbsp;ошибке сопровождается возможностью быстрого решения или инструкцией прямо на&nbsp;экране.</li>
+                        </ul>
+                        <h3 class="text-block__subtitle">Анализ ЦА</h3>
+                        <p class="text-block__text">
+                            Инженер мониторинга выступает в&nbsp;роли менеджера исключений (edge cases). Он&nbsp;подключается к&nbsp;управлению только когда искусственный интеллект автомобиля сталкивается с&nbsp;нестандартной ситуацией на&nbsp;дороге или технической поломкой.
+                        </p>
+                        <h3 class="text-block__subtitle">Боли</h3>
+                        <ul class="text-block__text">
+                            <li>Специфика работы: Смены оператора длятся по&nbsp;8&ndash;12&nbsp;часов, из-за чего к&nbsp;концу дня внимание притупляется, а&nbsp;глаза сильно устают.</li>
+                            <li>Alert Fatigue (усталость от&nbsp;уведомлений): До&nbsp;80% системных алертов&nbsp;&mdash; некритичные (например, мелкие баги датчиков, не&nbsp;мешающие движению). Если интерфейс будет одинаково &laquo;кричать&raquo; на&nbsp;каждую ошибку, оператор пропустит реальную аварию.</li>
+                            <li>Защита от&nbsp;дурака: Интерфейс должен полностью защищать от&nbsp;случайных кликов на&nbsp;критические действия в&nbsp;стрессовых ситуациях.</li>
+                        </ul>
+                        <p class="text-block__text">
+                            Учитывая жесткий таймлайн (5&nbsp;дней), было решено сфокусироваться на&nbsp;качественной и&nbsp;глубокой проработке одного из&nbsp;самых частых и&nbsp;критических сценариев в&nbsp;локальном контексте&nbsp;&mdash; локальной потере связи из-за попадания беспилотника в&nbsp;зону подавления GPS-сигнала.
+                        </p>
+                        <h3 class="text-block__subtitle">
+                            JTBD
+                        </h3>
+                        <p class="text-block__text">
+                            Когда автомобиль попадает в&nbsp;слепую зону и&nbsp;уходит в&nbsp;офлайн, я&nbsp;хочу зафиксировать его последние телеметрические данные и&nbsp;быстро отправить техбригаду по&nbsp;известным координатам, чтобы локализовать инцидент, позаботиться о&nbsp;пассажире и&nbsp;быстро вернуться к&nbsp;мониторингу остального парка.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery__grid">
+                    <div class="gallery__item">
+                        <picture>
+                            <source srcset="assets/images/eduson/case1/photo/image2_desk.webp"
+                                media="(min-width: 768px)">
+
+                            <img src="assets/images/eduson/case1/photo/image2_desk.webp"
+                                alt="Скриншот из Figma с токенами">
+                        </picture>
+                    </div>
+                </div>
+
+                <div class="gallery__caption">Подпись к картинке</div>
+
+            </div>
+
+            <div class="text-block text-block--no-number">
+                <div class="text-block__content">
+                    <div class="text-block__group">
+                        <h3 class="text-block__subtitle">Дизайн-система</h3>
+                        <p class="text-block__text">
+                            Для обеспечения консистентности и&nbsp;высокой скорости проектирования на&nbsp;базе популярного open-source UI-фреймворка был собран собственный масштабируемый UI-кит.
+                        </p>
+                        <p class="text-block__text">
+                            Все компоненты структурированы по&nbsp;методологии Atomic Design&nbsp;&mdash; от&nbsp;базовых атомов и&nbsp;кнопок до&nbsp;комплексных организмов и&nbsp;шаблонов страниц.
+                        </p>
+                        <p class="text-block__text">
+                            В&nbsp;макетах были настроены дизайн-токены и&nbsp;созданы светлая и&nbsp;тёмная темы. Тёмная тема критически важна для снижения нагрузки на&nbsp;зрение инженеров во&nbsp;время многочасовых ночных смен.
+                        </p>
+                        <p class="text-block__text">
+                            Использована библиотека Phosphor Icons, идеально подходящая под узкоспециализированные нужды админки диспетчерской.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery__grid">
+
+                    <div class="gallery__item">
+                        <img src="assets/images/eduson/case1/photo/image3a_desk.webp" alt="До" loading="lazy">
+                    </div>
+
+                    <div class="gallery__item">
+                        <img src="assets/images/eduson/case1/photo/image3b_desk.webp" alt="После" loading="lazy">
+                    </div>
+
+                </div>
+
+                <div class="gallery__caption">Описание</div>
+
+            </div>
+
+            <div class="text-block text-block--no-number">
+                <div class="text-block__content">
+                    <div class="text-block__group">
+                        <h3 class="text-block__subtitle">Финальное решение</h3>
+                        <p class="text-block__text">
+                            Спроектированный процесс минимизирует количество шагов и&nbsp;снижает когнитивную нагрузку в&nbsp;момент&nbsp;ЧП.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-slider">
+                <div class="gallery-slider__viewport">
+                    <div class="gallery-slider__track">
+                        <picture class="gallery-slider__picture">
+                            <source media="(max-width: 768px)" srcset="assets/images/okko/hypothesis1_mob.svg">
+                            <img src="assets/images/okko/hypothesis1.svg" alt="Экран 1" class="gallery-slider__img" data-caption="Штатный мониторинг. Инженер видит свой сектор ответственности. Чтобы избежать визуального шума на&nbsp;карте, подробный статус и&nbsp;номер машины скрыты по&nbsp;умолчанию и&nbsp;отображаются только при наведении на&nbsp;иконку.">
+                        </picture>
+        
+                        <picture class="gallery-slider__picture">
+                            <source media="(max-width: 768px)" srcset="assets/images/okko/hypothesis2_mob.svg">
+                            <img src="assets/images/okko/hypothesis2.svg" alt="Экран 1" class="gallery-slider__img" data-caption="Инцидент. Автомобиль &#8470;&nbsp;404 заезжает в&nbsp;зону глушения сигнала, и&nbsp;телеметрия перестаёт поступать. Логика: Интерфейс мгновенно реагирует&nbsp;&mdash; критический алерт закрепляется на&nbsp;карте ярким цветовым акцентом, а&nbsp;сама машина автоматически поднимается на&nbsp;первое место в&nbsp;списке инцидентов на&nbsp;левой панели.">
+                        </picture>
+
+                        <picture class="gallery-slider__picture">
+                            <source media="(max-width: 768px)" srcset="assets/images/okko/hypothesis3_mob.svg">
+                            <img src="assets/images/okko/hypothesis3.svg" alt="Экран 1" class="gallery-slider__img" data-caption="Изучение контекста. По&nbsp;клику на&nbsp;алерт инженер открывает боковую карточку автомобиля. Логика: Все нужные данные собраны на&nbsp;одном экране&nbsp;&mdash; последние зафиксированные координаты, скорость, уровень заряда батареи и&nbsp;статус наличия пассажира в&nbsp;салоне. Инженеру не&nbsp;нужно переключаться между вкладками или открывать карту в&nbsp;другом окне.">
+                        </picture>
+
+                        <picture class="gallery-slider__picture">
+                            <source media="(max-width: 768px)" srcset="assets/images/okko/hypothesis3_mob.svg">
+                            <img src="assets/images/okko/hypothesis3.svg" alt="Экран 1" class="gallery-slider__img" data-caption="Подтверждение действия. Инженер инициирует вызов технической бригады к&nbsp;месту инцидента. Логика: Появляется модальное окно с&nbsp;предзаполненной информацией: номер авто, адрес и&nbsp;ближайшая свободная бригада с&nbsp;расчетом времени прибытия. Возможность ручного редактирования полей сохраняется на&nbsp;случай сбоя автоматики, но&nbsp;само окно выступает физическим барьером от&nbsp;случайного клика.">
+                        </picture>
+
+                        <picture class="gallery-slider__picture">
+                            <source media="(max-width: 768px)" srcset="assets/images/okko/hypothesis3_mob.svg">
+                            <img src="assets/images/okko/hypothesis3.svg" alt="Экран 1" class="gallery-slider__img" data-caption="Возврат к&nbsp;мониторингу. Бригада отправлена, инцидент переходит в&nbsp;статус &laquo;В&nbsp;работе&raquo;. Интерфейс снижает интенсивность цветового кодирования для этой машины, позволяя инженеру спокойно сфокусироваться на&nbsp;остальном парке.">
+                        </picture>
+                    </div>
+        
+                    <button class="gallery-slider__arrow gallery-slider__arrow--prev btn btn--shape-round btn--appearance-flat" aria-label="Назад">
+                        <div class="arrow-left-icon arrow-left-icon--36">
+                            <svg>
+                                <use href="assets/images/icons.svg#arrow-filled-left-icon"></use>
+                            </svg>
+                        </div>
+                    </button>
+        
+                    <button class="gallery-slider__arrow gallery-slider__arrow--next btn btn--shape-round btn--appearance-flat" aria-label="Вперед">
+                        <div class="arrow-left-icon arrow-left-icon--36">
+                            <svg>
+                                <use href="assets/images/icons.svg#arrow-filled-right-icon"></use>
+                            </svg>
+                        </div>
+                    </button>
+        
+                    <div class="gallery-slider__dots"></div>
+                </div>
+                <div class="gallery-slider__caption">
+                <div class="gallery-slider__caption-text"> </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="results" class="container">
+
+            <div class="text-block text-block--no-number">
+                <div class="text-block__content">
+                    <h2 class="text-block__title">Ретроспектива</h2>
+                    <div class="text-block__group">
+                        <p class="text-block__text">
+                            Концепт успешно решает поставленную задачу автоматизации центра мониторинга, снижая риск человеческого фактора. Выделены следующие зоны для развития продукта в&nbsp;будущих итерациях:
+                        </p>
+                        <ul class="text-block__text">
+                            <li>Масштабируемость списков: Текущая боковая панель с&nbsp;чипами удобна для флота из&nbsp;50&ndash;100&nbsp;машин. При росте парка интерфейс потребует внедрения сложной многоуровневой системы фильтрации.</li>
+                            <li>Тестирование гипотез: Необходим этап коридорного юзабилити-тестирования интерактивного прототипа на&nbsp;реальных операторах диспетчерских для проверки скорости реакции в&nbsp;интерфейсе.</li>
+                            <li>Синхронизация дизайн-системы: Проведена большая работа по&nbsp;токенизации фреймворка, однако в&nbsp;продуктовой реальности следующим шагом должна стать глубокая техническая интеграция UI-кита с&nbsp;кодовой базой внутренних инструментов компании.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container" style="margin-bottom: var(--space-72);">
+            <h2 class="section-title">С&nbsp;этим всё, но&nbsp;у&nbsp;меня ещё кейс есть</h2>
+            <div class="case-organism">
+                <div class="case-organism__grid">
+                    <a href="cases/eduson-design-system/" class="case-card">
+                        <h3 class="case-card__title">Работа над дизайн-системой Эдюсон</h3>
+                            <div class="case-card__action">
+                                <span class="btn btn--shape-round btn--size-m btn--appearance-accent">
+                                    <svg class="arrow-up-right-icon arrow-up-right-icon--24" aria-hidden="true">
+                                        <use href="assets/images/icons.svg#arrow-up-right-icon"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main> 
+
+    <footer id="contact" class="container">
+        <h2 class="section-title">Контакты</h2>
+        <div class="footer">
+
+            <div class="footer-card" id="about">
+                <div class="footer-card__title">Обо мне</div>
+                <div class="footer-card__text">
+                    Я&nbsp;училась дизайну в&nbsp;ВШЭ и&nbsp;Bang Bang Education, люблю анекдоты и&nbsp;занимаюсь
+                    рисованием на&nbsp;досуге
+                </div>
+            </div>
+
+            <div class="footer-right">
+
+                <div class="footer-card">
+                    <div class="footer-card__title">Написать</div>
+                    <a href="https://t.me/mafonina" target="_blank" class="footer-card__text">Telegram</a>
+                </div>
+
+                <div class="footer-card" id="resume">
+                    <div class="footer-card__title">Узнать больше</div>
+                    <a href="assets/files/Afonina_UX-UI-designer.pdf" target="_blank"
+                        class="footer-card__text">Резюме</a>
+                </div>
+
+                <div class="footer-card footer-card--copy" id="emailCard">
+                    <div class="footer-card__title">Вдруг вам нужна моя почта</div>
+                    <div class="footer-card__text js-email">saltarelllllo@gmail.com</div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/@swup/head-plugin" defer></script>
+    <script src="https://unpkg.com/swup@4" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+
+</body>
+
+</html>

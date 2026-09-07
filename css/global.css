@@ -86,7 +86,7 @@ ol {
 
 ul {
     margin-left: var(--space-20);
-    padding-left: 0;
+    padding-left: var(--space-20);
     list-style-type: disc; 
 }
 
@@ -589,6 +589,10 @@ a.sticker--m:hover {
   text-underline-offset: var(--radius-8);
   transform: translateX(-50%) rotate(-2deg) scale(1.05);
   transition: transform 0.2s ease;
+}
+
+.sticker--disabled {
+    pointer-events: none;
 }
 
 /*--- D. chips ---*/

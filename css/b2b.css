@@ -1,0 +1,711 @@
+/* A. case-number */
+
+.case-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: var(--color-accent-500);
+    color: var(--color-neutral-0);
+    border-radius: var(--radius-100);
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size-28);
+    line-height: var(--line-height-28);
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+}
+
+@media (max-width: 768px) {
+    .case-number {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-20);
+        line-height: var(--line-height-20);
+    }
+}
+
+/* B. case-hero */
+
+/*--- B. case-hero ---*/
+
+.case-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-neutral-0);
+    border-radius: var(--radius-24);
+    padding: 48px 24px 24px 24px;
+    gap: var(--space-24);
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto var(--space-72);
+}
+
+.case-hero__sticker {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    z-index: 2;
+}
+
+
+
+.case-hero__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size-36);
+    line-height: var(--line-height-36);
+    color: var(--color-neutral-800);
+    margin: 0;
+    max-width: 1140px;
+    text-align: center;
+}
+
+.case-hero__chips {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    z-index: 2;
+}
+
+.case-hero__media {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius-24);
+    overflow: hidden;
+    line-height: 0;
+    height: 500px;
+}
+
+.case-hero__media img,
+.case-hero__media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-hero__media .case-hero__video--mobile {
+    display: none;
+}
+
+/* десктоп-вырез под чипы*/
+@media (min-width: 769px) {
+    .case-hero__media {
+        /* === СИСТЕМА НАСТРОЙКИ ВЫРЕЗА === */
+        --cutout-width: 700px;
+        /* Меняй это значение под ширину ряда чипов */
+        --cutout-height: 40px;
+        /* Глубина выреза (равна margin-top) */
+        --cutout-radius: 24px;
+        /* Скругление всех углов выреза */
+        --bg-color: var(--color-neutral-0);
+        /* Цвет фона, которым перекрываем */
+
+        margin-top: calc(var(--cutout-height) * -1);
+    }
+
+    /* Основной прямоугольник выреза (внутренняя часть) */
+    .case-hero__media::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(--cutout-width);
+        height: var(--cutout-height);
+        background-color: var(--bg-color);
+        border-bottom-left-radius: var(--cutout-radius);
+        border-bottom-right-radius: var(--cutout-radius);
+        z-index: 1;
+    }
+
+    /* Внешние ушки (левое и правое обратные скругления) */
+    .case-hero__media::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        /* Ширина: сам вырез + два радиуса по бокам */
+        width: calc(var(--cutout-width) + (var(--cutout-radius) * 2));
+        height: var(--cutout-radius);
+        pointer-events: none;
+        z-index: 1;
+
+        /* Рисуем два внешних угла радиальными градиентами */
+        background-image:
+            radial-gradient(circle at bottom left,
+                transparent calc(var(--cutout-radius) - 0.5px),
+                var(--bg-color) var(--cutout-radius)),
+            radial-gradient(circle at bottom right,
+                transparent calc(var(--cutout-radius) - 0.5px),
+                var(--bg-color) var(--cutout-radius));
+        background-size: var(--cutout-radius) var(--cutout-radius);
+        background-position:
+            top left,
+            top right;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 768px) {
+    .case-hero {
+        padding: 48px 20px 20px 20px;
+        gap: var(--space-16);
+        align-items: center;
+    }
+
+    .case-hero__media .case-hero__video--desktop {
+        display: none;
+    }
+
+    .case-hero__media .case-hero__video--mobile {
+        display: block;
+    }
+
+    .case-hero__sticker {
+        transform: translateX(-50%) rotate(-2deg) scale(0.85);
+        top: -32px;
+        left: 50%;
+    }
+
+    .case-hero__title {
+        font-size: var(--font-size-28);
+        line-height: var(--line-height-28);
+        text-align: center;
+    }
+
+    .case-hero__chips {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .case-hero__media {
+        aspect-ratio: 1 / 1;
+        height: auto;
+        margin-top: 0;
+        padding-top: 0;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .case-hero__media::before,
+    .case-hero__media::after {
+        display: none;
+    }
+}
+
+/* --- B. text-block --- */
+
+.text-block {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 280px;
+    align-items: flex-start;
+    padding-bottom: var(--space-72);
+}
+
+.text-block__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-32);
+    max-width: 760px;
+    flex: 1;
+}
+
+.text-block__title {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-32);
+    line-height: var(--line-height-32);
+    color: var(--color-neutral-800);
+    font-weight: 500;
+}
+
+.text-block__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+}
+
+.text-block__subtitle {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+    color: var(--color-accent-500);
+    font-weight: 300;
+}
+
+.text-block__text {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-24);
+    line-height: var(--line-height-24);
+    color: var(--color-neutral-800);
+    font-weight: 300;
+}
+
+.text-block--no-number {
+    padding-left: 328px;
+}
+
+@media (max-width: 768px) {
+    .text-block {
+        flex-direction: column;
+        gap: var(--space-24);
+        padding-bottom: var(--space-48);
+    }
+
+    .text-block__content {
+        gap: var(--space-24);
+        max-width: 100%;
+    }
+
+    .text-block__text {
+        font-size: var(--font-size-18);
+        line-height: var(--line-height-18);
+    }
+
+    .text-block__title {
+        font-size: var(--font-size-24);
+        line-height: var(--line-height-24);
+    }
+
+    .text-block--no-number {
+        padding-left: 0;
+    }
+}
+
+/* --- C. gallery --- */
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    width: 100%;
+    padding-bottom: var(--space-72);
+}
+
+.gallery__grid {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-16);
+    width: 100%;
+    align-items: flex-start;
+}
+
+.gallery__item {
+    flex: 1;
+    height: auto;
+    min-width: 0;
+    border-radius: var(--radius-24);
+    overflow: hidden;
+    line-height: 0;
+}
+
+.gallery__item img,
+.gallery__item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery__caption {
+    align-self: center;
+    max-width: 800px;
+    font-family: var(--font-family);
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+    font-weight: 300;
+    color: var(--color-neutral-400);
+}
+
+/* cтили для смены медиа (desktop/mobile) */
+.hide-desktop {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: var(--space-48);
+        width: auto;
+        overflow: visible;
+    }
+
+    .gallery__grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+
+        padding-left: 0;
+        padding-right: 0;
+        gap: var(--space-16);
+
+        scroll-padding-left: var(--space-16);
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .gallery__grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery__grid::after {
+        content: "";
+        flex: 0 0 16px;
+        list-style: none;
+    }
+
+    .gallery__item {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        overflow: hidden;
+    }
+
+    .gallery__caption {
+        margin-right: var(--space-16);
+        margin-top: var(--space-12);
+        align-self: flex-start;
+    }
+
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .hide-desktop {
+        display: block !important;
+    }
+}
+
+/*--- gallery-slider ---*/
+
+.gallery-slider {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    width: 100%;
+    padding-bottom: var(--space-72);
+}
+
+.gallery-slider__viewport {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius-24);
+    background-color: var(--color-neutral-200);
+    overflow: hidden;
+    max-height: 536px;
+    display: flex;
+    align-items: center;
+}
+
+.gallery-slider__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.gallery-slider__picture {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.gallery-slider__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.gallery-slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    user-select: none;
+}
+
+.gallery-slider__arrow--prev {
+    left: var(--space-24);
+}
+
+.gallery-slider__arrow--next {
+    right: var(--space-24);
+}
+
+.gallery-slider__dots {
+    position: absolute;
+    bottom: var(--space-24);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-8);
+    z-index: 10;
+}
+
+.gallery-slider__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-neutral-400);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gallery-slider__dot:hover {
+    transform: scale(1.2);
+}
+
+.gallery-slider__dot.is-active {
+    background-color: var(--color-accent-500);
+}
+
+.gallery-slider__caption {
+    display: grid;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    align-self: center;
+}
+
+.gallery-slider__caption-text {
+    grid-area: 1 / 1;
+    font-family: var(--font-family);
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+    font-weight: 300;
+    color: var(--color-neutral-400);
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.gallery-slider__caption-text.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .gallery-slider {
+        padding-bottom: var(--space-48);
+    }
+
+    .gallery-slider__viewport {
+        border-radius: var(--radius-16);
+    }
+
+    .gallery-slider__arrow--prev,
+    .gallery-slider__arrow--next {
+        display: none;
+    }
+
+    .gallery-slider__track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        transform: none !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-slider__track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-slider__picture {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+
+    .gallery-slider__dots {
+        bottom: var(--space-16);
+    }
+
+    .gallery-slider__caption {
+        box-sizing: border-box;
+        align-self: flex-start;
+        padding: 0;
+    }
+
+    .gallery-slider__caption-text {
+        text-align: left;
+    }
+}
+
+/*--- D. case-card ---*/
+
+/* 1. БАЗОВЫЙ БЛОК */
+.case-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: var(--color-neutral-0);
+    border-radius: var(--radius-24);
+    overflow: hidden;
+    text-decoration: none;
+    width: 100%;
+    min-height: 280px;
+    padding: var(--space-24);
+
+    /* Плавные переходы для состояний (аналогично кнопкам) */
+    transition: background-color 0.15s ease-out,
+        transform 0.1s ease-out;
+}
+
+/* 2. ФИГУРНЫЙ ВЫРЕЗ (MASK) */
+/* Основной квадрат в правом нижнем углу */
+.case-card::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-neutral-50);
+    /* Фон родителя (case-organism) */
+    border-top-left-radius: var(--radius-24);
+    z-index: 1;
+}
+
+/* Верхний внешний скругленный угол выреза */
+.case-card::after {
+    content: "";
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle at top left, transparent 23.5px, var(--color-neutral-50) 24px);
+    z-index: 1;
+}
+
+/* Контейнер для кнопки (служит якорем для левого скругления) */
+.case-card__action {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 2;
+    /* Поверх белого квадрата выреза */
+}
+
+/* Левый внешний скругленный угол выреза */
+.case-card__action::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 64px;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle at top left, transparent 23.5px, var(--color-neutral-50) 24px);
+    pointer-events: none;
+}
+
+/* 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ */
+.case-card__status {
+    display: none;
+    /* Скрыто в default состоянии */
+    font-family: var(--font-family);
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+    font-weight: 300;
+    color: var(--color-accent-500);
+    margin-bottom: auto;
+    /* Работает благодаря flex: отталкивает тайтл вниз */
+}
+
+.case-card__title {
+    font-family: var(--font-family);
+    font-size: var(--font-size-28);
+    line-height: var(--line-height-24);
+    font-weight: 400;
+    color: var(--color-neutral-900);
+    margin: auto 0 0 0;
+    /* Прижимается к низу */
+    max-width: calc(100% - 64px);
+    /* Защита от наложения текста на вырез */
+    z-index: 2;
+    transition: color 0.15s ease-out;
+}
+
+/* 4. СОСТОЯНИЯ (HOVER, ACTIVE, DISABLED) */
+
+.case-card:hover {
+    background-color: var(--color-neutral-0);
+}
+
+.case-card:hover .btn {
+    background-color: var(--color-neutral-0);
+    color: var(--color-accent-500);
+}
+
+.case-card:hover .case-card__title {
+    color: var(--color-accent-500);
+}
+
+.case-card:active {
+    transform: scale(0.98);
+}
+
+.case-card.is-disabled {
+    pointer-events: none;
+    /* Блокирует клики, hover и active */
+    background-color: var(--color-neutral-50);
+    /* Фиксируем фон */
+}
+
+.case-card.is-disabled .case-card__status {
+    display: block;
+}
+
+.case-card.is-disabled .case-card__title {
+    color: var(--color-neutral-400);
+}
+
+/* 5. АДАПТИВ */
+@media (max-width: 768px) {
+    .case-card {
+        aspect-ratio: 1 / 1;
+        min-height: auto;
+    }
+
+    .case-card__title {
+        font-size: var(--font-size-24);
+        line-height: var(--line-height-24);
+        margin: 0 0 auto 0;
+        /* На мобилке тайтл прилипает к верху */
+    }
+
+    /* Если включен disabled, статус и тайтл выстраиваются друг за другом */
+    .case-card.is-disabled .case-card__status {
+        margin-bottom: var(--space-8);
+    }
+}
