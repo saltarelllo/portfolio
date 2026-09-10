@@ -435,6 +435,7 @@
 
 .gallery-slider__arrow {
     position: absolute;
+    color: var(--color-neutral-50);
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
