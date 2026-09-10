@@ -80,11 +80,18 @@
 
                     </div>
                     <div class="case-hero__media">
-                        <picture>
-                            <source srcset="assets/images/b2b/webp/hero_image_desk.webp" media="(min-width: 768px)">
+                        <video class="case-hero__video--mobile" autoplay loop muted playsinline
+                            poster="assets/images/okko/photo/hero_image_mobile.webp">
+                            <source src="assets/images/b2b/webm/desk.webm" type="video/webm">
+                            Ваш браузер не поддерживает встроенное видео.
+                        </video>
 
-                            <img src="assets/images/b2b/webp/hero_image_mobile.webp" alt="Ноутбук с мокапом интерфейса">
-                        </picture>
+                        <!-- Десктопное видео -->
+                        <video class="case-hero__video--desktop" autoplay loop muted playsinline
+                            poster="assets/images/okko/photo/hero_image_desk.webp">
+                            <source src="assets/images/b2b/webm/desk.webm" type="video/webm">
+                            Ваш браузер не поддерживает встроенное видео.
+                        </video>
                     </div>
                 </section>
             </div>
