@@ -4,16 +4,18 @@
   width: 100%;
   height: auto;
 }
+
 svg.logo-mobile-version {
   display: none;
 }
+
 svg.logo-desktop-version {
   display: block;
 }
 
 @media (min-width: 769px) {
   .hero__logo {
-    width: 860px; 
+    width: 860px;
   }
 }
 
@@ -21,6 +23,7 @@ svg.logo-desktop-version {
   svg.logo-desktop-version {
     display: none;
   }
+
   svg.logo-mobile-version {
     display: block;
   }
@@ -41,10 +44,10 @@ svg.logo-desktop-version {
   width: 100%;
   min-height: 280px;
   padding: var(--space-24);
-  
+
   /* Плавные переходы для состояний (аналогично кнопкам) */
-  transition: background-color 0.15s ease-out, 
-              transform 0.1s ease-out;
+  transition: background-color 0.15s ease-out,
+    transform 0.1s ease-out;
 }
 
 /* 2. ФИГУРНЫЙ ВЫРЕЗ (MASK) */
@@ -55,8 +58,10 @@ svg.logo-desktop-version {
   bottom: 0;
   right: 0;
   width: 64px;
+
   height: 64px;
-  background-color: var(--color-neutral-0); /* Фон родителя (case-organism) */
+  background-color: var(--color-neutral-0);
+  /* Фон родителя (case-organism) */
   border-top-left-radius: var(--radius-24);
   z-index: 1;
 }
@@ -83,7 +88,8 @@ svg.logo-desktop-version {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  z-index: 2; /* Поверх белого квадрата выреза */
+  z-index: 2;
+  /* Поверх белого квадрата выреза */
 }
 
 /* Левый внешний скругленный угол выреза */
@@ -100,13 +106,15 @@ svg.logo-desktop-version {
 
 /* 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ */
 .case-card__status {
-  display: none; /* Скрыто в default состоянии */
+  display: none;
+  /* Скрыто в default состоянии */
   font-family: var(--font-family);
   font-size: var(--font-size-18);
   line-height: var(--line-height-18);
   font-weight: 300;
   color: var(--color-accent-500);
-  margin-bottom: auto; /* Работает благодаря flex: отталкивает тайтл вниз */
+  margin-bottom: auto;
+  /* Работает благодаря flex: отталкивает тайтл вниз */
 }
 
 .case-card__title {
@@ -115,8 +123,10 @@ svg.logo-desktop-version {
   line-height: var(--line-height-24);
   font-weight: 400;
   color: var(--color-neutral-900);
-  margin: auto 0 0 0; /* Прижимается к низу */
-  max-width: calc(100% - 64px); /* Защита от наложения текста на вырез */
+  margin: auto 0 0 0;
+  /* Прижимается к низу */
+  max-width: calc(100% - 64px);
+  /* Защита от наложения текста на вырез */
   z-index: 2;
   transition: color 0.15s ease-out;
 }
@@ -126,10 +136,12 @@ svg.logo-desktop-version {
 .case-card:hover {
   background-color: var(--color-neutral-50);
 }
+
 .case-card:hover .btn {
   background-color: var(--color-neutral-0);
   color: var(--color-accent-500);
 }
+
 .case-card:hover .case-card__title {
   color: var(--color-accent-500);
 }
@@ -139,12 +151,16 @@ svg.logo-desktop-version {
 }
 
 .case-card.is-disabled {
-  pointer-events: none; /* Блокирует клики, hover и active */
-  background-color: var(--color-neutral-50); /* Фиксируем фон */
+  pointer-events: none;
+  /* Блокирует клики, hover и active */
+  background-color: var(--color-neutral-50);
+  /* Фиксируем фон */
 }
+
 .case-card.is-disabled .case-card__status {
   display: block;
 }
+
 .case-card.is-disabled .case-card__title {
   color: var(--color-neutral-400);
 }
@@ -155,11 +171,12 @@ svg.logo-desktop-version {
     aspect-ratio: 1 / 1;
     min-height: auto;
   }
-  
+
   .case-card__title {
     font-size: var(--font-size-24);
     line-height: var(--line-height-24);
-    margin: 0 0 auto 0; /* На мобилке тайтл прилипает к верху */
+    margin: 0 0 auto 0;
+    /* На мобилке тайтл прилипает к верху */
   }
 
   /* Если включен disabled, статус и тайтл выстраиваются друг за другом */
@@ -181,7 +198,7 @@ svg.logo-desktop-version {
   background-color: var(--color-neutral-0);
   border-radius: var(--radius-24);
   width: 100%;
-  
+
   /* Используем переменные: верхний паддинг больше, чтобы дать место стикеру */
   padding: var(--space-48) var(--space-24) var(--space-24);
   margin: 0 auto var(--space-72);
@@ -195,9 +212,9 @@ svg.logo-desktop-version {
   transform: translateX(-50%) rotate(-2deg);
   z-index: 10;
   margin: 0;
-  text-decoration: none; 
-  
-  transition: transform 0.2s ease-in-out; 
+  text-decoration: none;
+
+  transition: transform 0.2s ease-in-out;
 }
 
 .case-organism__sticker:hover {
@@ -208,7 +225,8 @@ svg.logo-desktop-version {
   display: flex;
   justify-content: center;
   gap: var(--space-8);
-  flex-wrap: wrap; /* Защита, если чипсов будет много */
+  flex-wrap: wrap;
+  /* Защита, если чипсов будет много */
 }
 
 .case-organism__description {
@@ -229,13 +247,15 @@ svg.logo-desktop-version {
   gap: var(--space-16);
   width: 100%;
   justify-content: center;
-  align-items: stretch; /* Карточки в одном ряду будут одинаковой высоты */
+  align-items: stretch;
+  /* Карточки в одном ряду будут одинаковой высоты */
 }
 
 /* Заставляем карточки заполнять контейнер равномерно */
 .case-organism__grid .case-card {
   flex: 1;
-  min-width: 0; /* Предотвращает разрыв flex-контейнера длинными текстами в карточке */
+  min-width: 0;
+  /* Предотвращает разрыв flex-контейнера длинными текстами в карточке */
 }
 
 /* 3. МОДИФИКАТОРЫ */
@@ -275,124 +295,163 @@ svg.logo-desktop-version {
 }
 
 
+
 /* HERO SECTION */
 
-.hero {
+.hero__container {
   position: relative;
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-72) 0;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.hero__bg {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%); 
-  width: 110vw;
-  height: 80%;
   background-color: var(--color-neutral-0);
-  border-radius: 0 0 50% 50%;
-  z-index: -1;
-}
-
-.hero__content {
+  border-radius: var(--radius-24);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-36);
-  max-width: 800px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.hero__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-24);
-  width: 100%;
+  padding-top: var(--space-72);
+  padding-bottom: var(--space-48);
+  overflow: visible;
+  z-index: 1;
+  margin-top: var(--space-72);
+  margin-bottom: var(--space-72);
 }
 
 .hero__logo-wrapper {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
   width: 100%;
-  transform: rotate(-2deg);
+  max-width: 450px;
   display: flex;
   justify-content: center;
+  z-index: 2;
+  margin-top: -36px;
+}
+
+.hero__logo-wrapper svg {
+  width: 100%;
+  height: auto;
+}
+
+.logo-desktop-version {
+  display: block;
+}
+
+.logo-mobile-version {
+  display: none;
 }
 
 .hero__subtitle {
-  font-size: var(--font-size-24);
-  line-height: var(--line-height-24);
-  font-weight: 300;
-  color: var(--color-neutral-800);
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-20);
+  color: var(--color-neutral-850);
+  text-align: center;
   margin: 0;
-  max-width: 700px;
+  padding: 0 var(--space-24);
+  max-width: 650px;
+  margin-bottom: var(--space-48);
 }
 
-.hero__competences .competence-card {
-flex: 1;
-max-width: 420px;
-width: 100%;
+/* --- ВЫРЕЗ ПОД КНОПКУ С ВНЕШНИМИ СКРУГЛЕНИЯМИ --- */
+
+.hero__button-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 224px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius-24) var(--radius-24) 0 0;
 }
 
-.hero__competences {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: var(--space-16);
-width: 100%;
-margin-top: var(--space-32);
-justify-content: center;
+/* Кнопка с позиционированием поверх серой плашки */
+.hero__button-wrapper .btn {
+  margin-top: var(--space-24);
+  z-index: 5;
 }
 
-.competence-card__text {
-text-align: center;
+/* Левый скругляющий уголок */
+.hero__button-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* Изменено с top: 0 */
+  left: -24px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  box-shadow: 0.375rem 0.375rem var(--color-neutral-50);
+  border-bottom-right-radius: 24px;
+  pointer-events: none;
 }
+
+/* Правый скругляющий уголок */
+.hero__button-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -24px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  box-shadow: -0.375rem 0.375rem var(--color-neutral-50);
+  pointer-events: none;
+  border-bottom-left-radius: 24px;
+}
+
+/* --- АДАПТИВ --- */
 
 @media (max-width: 768px) {
-
-  .hero {
-   padding-top: var(--space-48);
-  }
-      
-  .hero__content {
-   gap: var(--space-36);
+  .hero__container {
+    padding-top: 88px;
+    padding-bottom: 32px;
+    border-radius: var(--radius-24);
+    background-color: var(--color-neutral-0);
   }
 
-  .hero__bg {
-   width: 200vw;
-   height: 80%;
+  .hero__logo-wrapper {
+    transform: translateX(-50%);
+    margin-top: -24px;
+    width: 60%;
+  }
+
+  .logo-desktop-version {
+    display: none;
+  }
+
+  .logo-mobile-version {
+    display: block;
   }
 
   .hero__subtitle {
-    font-size: 20px;
-    line-height: 24px;
-    padding: 0 var(--space-32);
-    max-width: 760px;
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+    margin-bottom: var(--space-24);
   }
 
-  .hero__competences {
-    justify-items: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
-    margin-top: var(--space-48);
-    flex-direction: column;
-    gap: var(--space-20);
+  .hero__button-wrapper {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .hero__competences .competence-card {
-    height: 100%;
-    width: 100%;
+  /* Скрываем скругления на мобильных */
+  .hero__button-wrapper::before,
+  .hero__button-wrapper::after {
+    display: none;
   }
 
-  .hero__logo {
-    width: calc(100% - 32px);
+  .hero__button-wrapper .btn {
+    position: relative;
+    margin-top: 0;
   }
-
 }
