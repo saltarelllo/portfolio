@@ -398,10 +398,10 @@
   width: 100%;
   min-height: 280px;
   padding: var(--space-24);
-  
+
   /* Плавные переходы для состояний (аналогично кнопкам) */
-  transition: background-color 0.15s ease-out, 
-              transform 0.1s ease-out;
+  transition: background-color 0.15s ease-out,
+    transform 0.1s ease-out;
 }
 
 /* 2. ФИГУРНЫЙ ВЫРЕЗ (MASK) */
@@ -413,7 +413,8 @@
   right: 0;
   width: 64px;
   height: 64px;
-  background-color: var(--color-neutral-50); /* Фон родителя (case-organism) */
+  background-color: var(--color-neutral-50);
+  /* Фон родителя (case-organism) */
   border-top-left-radius: var(--radius-24);
   z-index: 1;
 }
@@ -440,7 +441,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  z-index: 2; /* Поверх белого квадрата выреза */
+  z-index: 2;
+  /* Поверх белого квадрата выреза */
 }
 
 /* Левый внешний скругленный угол выреза */
@@ -457,13 +459,15 @@
 
 /* 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ */
 .case-card__status {
-  display: none; /* Скрыто в default состоянии */
+  display: none;
+  /* Скрыто в default состоянии */
   font-family: var(--font-family);
   font-size: var(--font-size-18);
   line-height: var(--line-height-18);
   font-weight: 300;
   color: var(--color-accent-500);
-  margin-bottom: auto; /* Работает благодаря flex: отталкивает тайтл вниз */
+  margin-bottom: auto;
+  /* Работает благодаря flex: отталкивает тайтл вниз */
 }
 
 .case-card__title {
@@ -472,8 +476,10 @@
   line-height: var(--line-height-24);
   font-weight: 400;
   color: var(--color-neutral-900);
-  margin: auto 0 0 0; /* Прижимается к низу */
-  max-width: calc(100% - 64px); /* Защита от наложения текста на вырез */
+  margin: auto 0 0 0;
+  /* Прижимается к низу */
+  max-width: calc(100% - 64px);
+  /* Защита от наложения текста на вырез */
   z-index: 2;
   transition: color 0.15s ease-out;
 }
@@ -483,10 +489,12 @@
 .case-card:hover {
   background-color: var(--color-neutral-0);
 }
+
 .case-card:hover .btn {
   background-color: var(--color-neutral-0);
   color: var(--color-accent-500);
 }
+
 .case-card:hover .case-card__title {
   color: var(--color-accent-500);
 }
@@ -496,12 +504,16 @@
 }
 
 .case-card.is-disabled {
-  pointer-events: none; /* Блокирует клики, hover и active */
-  background-color: var(--color-neutral-50); /* Фиксируем фон */
+  pointer-events: none;
+  /* Блокирует клики, hover и active */
+  background-color: var(--color-neutral-50);
+  /* Фиксируем фон */
 }
+
 .case-card.is-disabled .case-card__status {
   display: block;
 }
+
 .case-card.is-disabled .case-card__title {
   color: var(--color-neutral-400);
 }
@@ -512,11 +524,12 @@
     aspect-ratio: 1 / 1;
     min-height: auto;
   }
-  
+
   .case-card__title {
     font-size: var(--font-size-24);
     line-height: var(--line-height-24);
-    margin: 0 0 auto 0; /* На мобилке тайтл прилипает к верху */
+    margin: 0 0 auto 0;
+    /* На мобилке тайтл прилипает к верху */
   }
 
   /* Если включен disabled, статус и тайтл выстраиваются друг за другом */
@@ -547,5 +560,134 @@
     line-height: var(--line-height-24);
     margin-bottom: var(--space-48);
     font-weight: 300;
+  }
+}
+
+/* 5. АДАПТИВ */
+@media (max-width: 768px) {
+  .case-card {
+    aspect-ratio: 1 / 1;
+    min-height: auto;
+  }
+
+  .case-card__title {
+    font-size: var(--font-size-24);
+    line-height: var(--line-height-24);
+    margin: 0 0 auto 0;
+    /* На мобилке тайтл прилипает к верху */
+  }
+
+  /* Если включен disabled, статус и тайтл выстраиваются друг за другом */
+  .case-card.is-disabled .case-card__status {
+    margin-bottom: var(--space-8);
+  }
+}
+
+/*--- D. case-organism ---*/
+
+/* 1. БАЗОВЫЙ БЛОК */
+.case-organism {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  background-color: transparent;
+  border-radius: var(--radius-24);
+  width: 100%;
+
+  /* Используем переменные: верхний паддинг больше, чтобы дать место стикеру */
+  padding: var(--space-48) var(--space-24) var(--space-24);
+  margin: 0 auto var(--space-72);
+}
+
+/* 2. ЭЛЕМЕНТЫ */
+.case-organism__sticker {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 10;
+  margin: 0;
+  text-decoration: none;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.case-organism__sticker:hover {
+  transform: translateX(-50%) rotate(-2deg) scale(1.05);
+}
+
+.case-organism__chips {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  /* Защита, если чипсов будет много */
+}
+
+.case-organism__description {
+  font-family: var(--font-family);
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-20);
+  font-weight: 300;
+  color: var(--color-neutral-800);
+  text-align: center;
+  max-width: 750px;
+  margin: 0;
+}
+
+/* Сетка для карточек */
+.case-organism__grid {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-16);
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+  /* Карточки в одном ряду будут одинаковой высоты */
+}
+
+/* Заставляем карточки заполнять контейнер равномерно */
+.case-organism__grid .case-card {
+  flex: 1;
+  min-width: 0;
+  /* Предотвращает разрыв flex-контейнера длинными текстами в карточке */
+}
+
+/* 3. МОДИФИКАТОРЫ */
+
+/* Состояние, когда внутри кейса нет ни одной case-card */
+.case-organism--empty {
+  padding-bottom: var(--space-48);
+}
+
+.case-organism--empty .case-organism__grid {
+  display: none;
+}
+
+/* 4. АДАПТИВ */
+@media (max-width: 768px) {
+  .case-organism {
+    padding: var(--space-48) var(--space-16) var(--space-24);
+  }
+
+  .case-organism__description {
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-18);
+  }
+
+  /* Перестраиваем сетку в колонку */
+  .case-organism__grid {
+    flex-direction: column;
+  }
+
+  /* На мобильных чипсы выстраиваются друг под другом */
+  .case-organism__chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
   }
 }
