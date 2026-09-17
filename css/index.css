@@ -340,8 +340,8 @@ svg.logo-desktop-version {
 }
 
 .hero__subtitle {
-  font-size: var(--font-size-20);
-  line-height: var(--line-height-20);
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-24);
   color: var(--color-neutral-850);
   text-align: center;
   margin: 0;
