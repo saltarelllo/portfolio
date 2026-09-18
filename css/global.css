@@ -1132,24 +1132,13 @@ a.sticker--m:hover {
   flex: 1;
 }
 
-/*розовая ссылка на инст*/
-.footer-link-accent {
-  color: var(--color-accent-500);
-  text-decoration: none;
-  text-underline-offset: var(--space-12);
-  transition: opacity 0.2s ease;
-}
-
-.footer-link-accent:hover {
-  opacity: 0.8;
-}
-
 @media (max-width: 768px) {
 
   .footer {
     display: flex;
     flex-direction: column;
     gap: var(--space-12);
+    padding-bottom: var(--space-48);
   }
 
   .footer>.footer-card,
