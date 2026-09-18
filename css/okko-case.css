@@ -76,7 +76,7 @@
   width: 100%;
   border-radius: var(--radius-24);
   overflow: hidden;
-  line-height: 0; 
+  line-height: 0;
   height: 500px;
 }
 
@@ -97,10 +97,14 @@
   .case-hero__media {
 
     /* === СИСТЕМА НАСТРОЙКИ ВЫРЕЗА === */
-    --cutout-width: 700px; /* Меняй это значение под ширину ряда чипов */
-    --cutout-height: 40px; /* Глубина выреза (равна margin-top) */
-    --cutout-radius: 24px; /* Скругление всех углов выреза */
-    --bg-color: var(--color-neutral-0); /* Цвет фона, которым перекрываем */
+    --cutout-width: 700px;
+    /* Меняй это значение под ширину ряда чипов */
+    --cutout-height: 40px;
+    /* Глубина выреза (равна margin-top) */
+    --cutout-radius: 24px;
+    /* Скругление всех углов выреза */
+    --bg-color: var(--color-neutral-0);
+    /* Цвет фона, которым перекрываем */
 
     margin-top: calc(var(--cutout-height) * -1);
   }
@@ -134,7 +138,7 @@
     z-index: 1;
 
     /* Рисуем два внешних угла радиальными градиентами */
-    background-image: 
+    background-image:
       radial-gradient(circle at bottom left, transparent calc(var(--cutout-radius) - 0.5px), var(--bg-color) var(--cutout-radius)),
       radial-gradient(circle at bottom right, transparent calc(var(--cutout-radius) - 0.5px), var(--bg-color) var(--cutout-radius));
     background-size: var(--cutout-radius) var(--cutout-radius);
@@ -153,13 +157,13 @@
   .case-hero__media .case-hero__video--desktop {
     display: none;
   }
-  
+
   .case-hero__media .case-hero__video--mobile {
     display: block;
   }
 
   .case-hero__sticker {
-    transform: translateX(-50%) rotate(-2deg) scale(0.85); 
+    transform: translateX(-50%) rotate(-2deg) scale(0.85);
     top: -32px;
     left: 50%;
 
@@ -172,7 +176,7 @@
   }
 
   .case-hero__chips {
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center
   }
 
@@ -208,7 +212,7 @@
   flex-direction: column;
   gap: var(--space-32);
   max-width: 760px;
-  flex: 1; 
+  flex: 1;
 }
 
 .text-block__title {
@@ -282,7 +286,7 @@
 .gallery {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16); 
+  gap: var(--space-16);
   width: 100%;
   padding-bottom: var(--space-72);
 }
@@ -296,12 +300,12 @@
 }
 
 .gallery__item {
-  flex: 1; 
+  flex: 1;
   height: auto;
-  min-width: 0; 
+  min-width: 0;
   border-radius: var(--radius-24);
   overflow: hidden;
-  line-height: 0; 
+  line-height: 0;
 }
 
 .gallery__item img,
@@ -323,12 +327,14 @@
 }
 
 /* cтили для смены медиа (desktop/mobile) */
-.hide-desktop { display: none !important; }
+.hide-desktop {
+  display: none !important;
+}
 
 
 @media (max-width: 768px) {
   .gallery {
-    margin-left: 0; 
+    margin-left: 0;
     margin-right: 0;
     padding-bottom: var(--space-48);
     width: auto;
@@ -341,11 +347,11 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    
+
     padding-left: 0;
-    padding-right: 0; 
+    padding-right: 0;
     gap: var(--space-16);
-    
+
     scroll-padding-left: var(--space-16);
 
     -ms-overflow-style: none;
@@ -374,8 +380,13 @@
     align-self: flex-start;
   }
 
-  .hide-mobile { display: none !important; }
-  .hide-desktop { display: block !important; }
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .hide-desktop {
+    display: block !important;
+  }
 
 }
 
@@ -411,7 +422,7 @@
 .gallery-slider__picture {
   display: block;
   width: 100%;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .gallery-slider__img {
@@ -475,7 +486,7 @@
 }
 
 .gallery-slider__caption-text {
-  grid-area: 1 / 1; 
+  grid-area: 1 / 1;
   font-family: var(--font-family);
   font-size: var(--font-size-18);
   line-height: var(--line-height-18);
@@ -484,7 +495,7 @@
   margin: 0;
   text-align: center;
   opacity: 0;
-  visibility: hidden; 
+  visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -512,19 +523,19 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    transform: none !important; 
+    transform: none !important;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .gallery-slider__track::-webkit-scrollbar {
     display: none;
   }
-  
+
   .gallery-slider__picture {
     scroll-snap-align: center;
     scroll-snap-stop: always;
   }
-  
+
   .gallery-slider__dots {
     bottom: var(--space-16);
   }
@@ -534,7 +545,7 @@
     align-self: flex-start;
     padding: 0
   }
-  
+
   .gallery-slider__caption-text {
     text-align: left;
   }
@@ -555,10 +566,10 @@
   width: 100%;
   min-height: 280px;
   padding: var(--space-24);
-  
+
   /* Плавные переходы для состояний (аналогично кнопкам) */
-  transition: background-color 0.15s ease-out, 
-              transform 0.1s ease-out;
+  transition: background-color 0.15s ease-out,
+    transform 0.1s ease-out;
 }
 
 /* 2. ФИГУРНЫЙ ВЫРЕЗ (MASK) */
@@ -570,7 +581,8 @@
   right: 0;
   width: 64px;
   height: 64px;
-  background-color: var(--color-neutral-50); /* Фон родителя (case-organism) */
+  background-color: var(--color-neutral-50);
+  /* Фон родителя (case-organism) */
   border-top-left-radius: var(--radius-24);
   z-index: 1;
 }
@@ -597,7 +609,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  z-index: 2; /* Поверх белого квадрата выреза */
+  z-index: 2;
+  /* Поверх белого квадрата выреза */
 }
 
 /* Левый внешний скругленный угол выреза */
@@ -614,13 +627,15 @@
 
 /* 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ */
 .case-card__status {
-  display: none; /* Скрыто в default состоянии */
+  display: none;
+  /* Скрыто в default состоянии */
   font-family: var(--font-family);
   font-size: var(--font-size-18);
   line-height: var(--line-height-18);
   font-weight: 300;
   color: var(--color-accent-500);
-  margin-bottom: auto; /* Работает благодаря flex: отталкивает тайтл вниз */
+  margin-bottom: auto;
+  /* Работает благодаря flex: отталкивает тайтл вниз */
 }
 
 .case-card__title {
@@ -629,8 +644,10 @@
   line-height: var(--line-height-24);
   font-weight: 400;
   color: var(--color-neutral-900);
-  margin: auto 0 0 0; /* Прижимается к низу */
-  max-width: calc(100% - 64px); /* Защита от наложения текста на вырез */
+  margin: auto 0 0 0;
+  /* Прижимается к низу */
+  max-width: calc(100% - 64px);
+  /* Защита от наложения текста на вырез */
   z-index: 2;
   transition: color 0.15s ease-out;
 }
@@ -640,10 +657,12 @@
 .case-card:hover {
   background-color: var(--color-neutral-0);
 }
+
 .case-card:hover .btn {
   background-color: var(--color-neutral-0);
   color: var(--color-accent-500);
 }
+
 .case-card:hover .case-card__title {
   color: var(--color-accent-500);
 }
@@ -653,12 +672,16 @@
 }
 
 .case-card.is-disabled {
-  pointer-events: none; /* Блокирует клики, hover и active */
-  background-color: var(--color-neutral-50); /* Фиксируем фон */
+  pointer-events: none;
+  /* Блокирует клики, hover и active */
+  background-color: var(--color-neutral-50);
+  /* Фиксируем фон */
 }
+
 .case-card.is-disabled .case-card__status {
   display: block;
 }
+
 .case-card.is-disabled .case-card__title {
   color: var(--color-neutral-400);
 }
@@ -669,11 +692,12 @@
     aspect-ratio: 1 / 1;
     min-height: auto;
   }
-  
+
   .case-card__title {
     font-size: var(--font-size-24);
     line-height: var(--line-height-24);
-    margin: 0 0 auto 0; /* На мобилке тайтл прилипает к верху */
+    margin: 0 0 auto 0;
+    /* На мобилке тайтл прилипает к верху */
   }
 
   /* Если включен disabled, статус и тайтл выстраиваются друг за другом */
@@ -694,7 +718,7 @@
   box-sizing: border-box;
   border-radius: var(--radius-24);
   width: 100%;
-  
+
   margin: 0 auto var(--space-72);
 }
 
@@ -707,13 +731,15 @@
   gap: var(--space-16);
   width: 100%;
   justify-content: center;
-  align-items: stretch; /* Карточки в одном ряду будут одинаковой высоты */
+  align-items: stretch;
+  /* Карточки в одном ряду будут одинаковой высоты */
 }
 
 /* Заставляем карточки заполнять контейнер равномерно */
 .case-organism__grid .case-card {
   flex: 1;
-  min-width: 0; /* Предотвращает разрыв flex-контейнера длинными текстами в карточке */
+  min-width: 0;
+  /* Предотвращает разрыв flex-контейнера длинными текстами в карточке */
 }
 
 /* 3. МОДИФИКАТОРЫ */
@@ -730,7 +756,7 @@
 /* 4. АДАПТИВ */
 @media (max-width: 768px) {
   .case-organism {
-    padding: var(--space-48) var(--space-16) var(--space-24);
+    padding: var(--space-48) 0 0;
   }
 
   /* Перестраиваем сетку в колонку */
@@ -747,7 +773,7 @@
   line-height: var(--line-height-32);
   font-weight: 500;
   color: var(--color-neutral-800);
-  
+
   max-width: 900px;
   margin: 0 auto var(--space-48);
   text-align: center;
