@@ -39,7 +39,7 @@ svg.logo-desktop-version {
   box-sizing: border-box;
 
   background-color: var(--color-neutral-50);
-  background-image: var(--card-bg);
+  /*background-image: var(--card-bg);*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
