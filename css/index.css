@@ -37,7 +37,13 @@ svg.logo-desktop-version {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
   background-color: var(--color-neutral-50);
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   border-radius: var(--radius-24);
   overflow: hidden;
   text-decoration: none;
@@ -135,6 +141,7 @@ svg.logo-desktop-version {
 
 .case-card:hover {
   background-color: var(--color-neutral-50);
+  filter: opacity(0.80);
 }
 
 .case-card:hover .btn {
@@ -170,6 +177,7 @@ svg.logo-desktop-version {
   .case-card {
     aspect-ratio: 1 / 1;
     min-height: auto;
+    background-image: none;
   }
 
   .case-card__title {
